@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-inner shell">
+    <p>© {year} Jialong (Mark) Li</p>
+    <div class="footer-links">
+      <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-inner {
+    display: flex;
+    min-height: 6.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--text-body);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  a {
+    color: var(--color-muted);
+    font-size: var(--text-body);
+    text-underline-offset: 0.25em;
+  }
+
+  a:hover {
+    color: var(--color-link);
+  }
+
+  @media (max-width: 620px) {
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+</style>

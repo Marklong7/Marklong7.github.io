@@ -1,0 +1,49 @@
+:root {
+  /* Exact values from code/utils/plot_rules.R. */
+  --palette-white: white;
+  --palette-text: #1c1c1e;
+  --palette-grid: #e5e5ea;
+  --palette-reference: #c7c7cc;
+  --palette-box-border: #636366;
+
+  --palette-treatment-control: #8bc48b;
+  --palette-treatment-saliency: #2196f3;
+  --palette-treatment-information: #ef5350;
+  --palette-marigold: #ffc93c;
+
+  --palette-privacy-control: #c8e6c9;
+  --palette-privacy-use: #90caf9;
+  --palette-privacy-collect: #ffab91;
+
+  --palette-survey: #64b0dd;
+  --palette-extension: #df776e;
+  --palette-benchmark: #7dc27d;
+  --palette-binary-active: #e05a5a;
+  --palette-exposure-low: #80deea;
+  --palette-exposure-cyan: #4dd0e1;
+  --palette-exposure-high: #283593;
+
+  /* Website roles use a restrained subset of the same palette. */
+  --color-background: var(--palette-white);
+  --color-text: var(--palette-text);
+  --color-muted: var(--palette-box-border);
+  --color-border: var(--palette-grid);
+  --color-border-strong: var(--palette-reference);
+  --color-accent: var(--palette-treatment-control);
+  --color-link: var(--palette-exposure-high);
+  --color-status-review: var(--palette-treatment-saliency);
+  --color-status-active: var(--palette-treatment-information);
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --content-width: 68rem;
+  --reading-width: 42rem;
+  --radius: 0.875rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* Three levels only: display, heading, and text. */
+  --text-display: clamp(2.25rem, 3.8vw, 3rem);
+  --text-heading: clamp(1.25rem, 1.6vw, 1.375rem);
+  --text-body: 1.0625rem;
+}

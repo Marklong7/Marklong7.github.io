@@ -1,0 +1,324 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const affiliations = [
+  {
+    name: "Stanford University",
+    detail: "Predoctoral Fellow (non-degree) · Expected 2027",
+    viewBox: "64 34 151 150",
+  },
+  {
+    name: "Northwestern University",
+    detail: "M.S. Machine Learning & Data Science · 2024",
+    viewBox: "64 214 150 149",
+  },
+  {
+    name: "University of Illinois Urbana–Champaign",
+    detail: "B.S. Statistics · Computer Science minor · 2023",
+    viewBox: "64 394 150 150",
+  },
+];
+---
+
+<BaseLayout>
+  <main id="main-content">
+    <section class="hero shell" aria-labelledby="page-title">
+      <div class="hero-layout">
+        <div class="hero-heading">
+          <h1 id="page-title">Jialong (Mark) Li</h1>
+          <p class="role">
+            <span>Predoctoral Research Fellow</span>
+            <span>Stanford Graduate School of Business</span>
+          </p>
+        </div>
+
+        <div class="hero-copy">
+          <p class="introduction">
+            Hi, I’m Jialong (Mark) Li, a predoc at Stanford Graduate School of Business. My work
+            focuses on Quantitative Marketing and Operations, Information &amp; Technology.
+          </p>
+          <p class="introduction">
+            My long-term goal is to help build AI systems that create value for firms, users, and
+            society. Reaching that goal means considering system performance, user behavior, market
+            dynamics, and social welfare together from the outset.
+          </p>
+          <p class="introduction">
+            This goal guides my work across computer science and the social sciences, bringing
+            economic and behavioral insights into AI design and studying what AI systems reveal
+            about users and markets.
+          </p>
+          <div class="intro-links" aria-label="Contact links">
+            <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
+            <a
+              href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
+              target="_blank"
+              rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
+            >
+            <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer"
+              >GitHub <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <section class="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <ol class="affiliations">
+          {
+            affiliations.map((affiliation) => (
+              <li>
+                <svg
+                  class="institution-logo"
+                  viewBox={affiliation.viewBox}
+                  role="img"
+                  aria-label={`${affiliation.name} logo`}
+                >
+                  <image href="/images/education-logos.png" width="264" height="644" />
+                </svg>
+                <div>
+                  <h3>{affiliation.name}</h3>
+                  <p>{affiliation.detail}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+    </section>
+
+    <section class="directory shell" aria-label="Explore the website">
+      <a href="/research/">
+        <h2>Research</h2>
+        <p>Papers and clearly labeled research projects in privacy, markets, and machine learning.</p>
+        <span class="action">View research <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a href="/talks/">
+        <h2>Talk</h2>
+        <p>Presentation slides and technical reading-group materials.</p>
+        <span class="action">View talks <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a href="/blog/">
+        <h2>Blog</h2>
+        <p>Research notes, methods, figures, and longer-form ideas.</p>
+        <span class="action">Read notes <span aria-hidden="true">→</span></span>
+      </a>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: clamp(3.75rem, 6vw, 5.25rem);
+    padding-bottom: clamp(3.25rem, 6vw, 4.75rem);
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(23rem, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 7vw, 6.5rem);
+    align-items: start;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: 500;
+    letter-spacing: -0.042em;
+    line-height: 0.98;
+  }
+
+  .role {
+    max-width: 26rem;
+    margin: 0.85rem 0 0;
+    color: var(--color-muted);
+    font-size: var(--text-body);
+    line-height: 1.45;
+  }
+
+  .role span {
+    display: block;
+  }
+
+  .role span:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .role span + span {
+    margin-top: 0.15rem;
+  }
+
+  .introduction {
+    max-width: 38rem;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    letter-spacing: -0.008em;
+    line-height: 1.62;
+  }
+
+  .introduction + .introduction {
+    margin-top: 1rem;
+  }
+
+  .intro-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.35rem;
+  }
+
+  .intro-links a {
+    color: var(--color-link);
+    font-size: var(--text-body);
+    font-weight: 600;
+    text-underline-offset: 0.25em;
+  }
+
+  .education {
+    margin-top: clamp(3rem, 5vw, 4rem);
+  }
+
+  .education > h2 {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-body);
+    font-size: var(--text-heading);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+
+  .affiliations {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 1.6rem 0 0;
+    border-top: 1px solid var(--color-border);
+    list-style: none;
+  }
+
+  .affiliations li {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1.15rem;
+    align-items: center;
+    padding-right: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .affiliations li + li {
+    padding-left: clamp(1rem, 3vw, 2.5rem);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .institution-logo {
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .affiliations h3 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .affiliations p {
+    margin: 0.28rem 0 0;
+    color: var(--color-muted);
+    font-size: var(--text-body);
+    line-height: 1.55;
+  }
+
+  .directory {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .directory > a {
+    display: flex;
+    min-height: 12.75rem;
+    flex-direction: column;
+    padding: 1.9rem clamp(1.25rem, 3vw, 2.25rem);
+    text-decoration: none;
+  }
+
+  .directory > a + a {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .directory h2 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-heading);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+
+  .directory p {
+    max-width: 17rem;
+    margin: 0.85rem 0 0;
+    color: var(--color-muted);
+    font-size: var(--text-body);
+    line-height: 1.65;
+  }
+
+  .action {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    color: var(--color-text);
+    font-size: var(--text-body);
+    font-weight: 600;
+  }
+
+  .directory > a:hover h2,
+  .directory > a:hover .action {
+    color: var(--color-link);
+  }
+
+  @media (max-width: 720px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .affiliations {
+      grid-template-columns: 1fr;
+      padding-top: 0;
+    }
+
+    .affiliations li {
+      padding: 1.15rem 0;
+    }
+
+    .affiliations li + li {
+      padding-left: 0;
+      border-top: 1px solid var(--color-border);
+      border-left: 0;
+    }
+
+    .directory {
+      grid-template-columns: 1fr;
+    }
+
+    .directory > a {
+      min-height: 10.5rem;
+      padding-inline: 0;
+    }
+
+    .directory > a + a {
+      border-top: 1px solid var(--color-border);
+      border-left: 0;
+    }
+
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "katex/dist/katex.min.css";
+import "../styles/tokens.css";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Jialong (Mark) Li",
+  description = "Research in quantitative marketing, algorithmic systems, data privacy, and machine learning.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Jialong (Mark) Li — Blog"
+      href="/rss.xml"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
