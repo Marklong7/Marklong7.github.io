@@ -1,10 +1,10 @@
 # Website maintenance rules
 
-- Keep the global navigation limited to Research, Talk, and Blog.
+- Keep the global navigation limited to Home, Research, Talk, and Blog.
 - Always display the full name as `Jialong (Mark) Li`; do not shorten the site wordmark to `Jialong Li` or `Mark`.
 - Do not publish or store Mark's CV in this public repository.
 - Store research, blog, and slide metadata in the matching `src/content` collection rather than hard-coding entries into page components.
-- Use only colors declared in `src/styles/tokens.css`. Every literal value must come from Mark's `plot_rules.R` palette; do not summarize it as a black/white/grey/blue palette.
+- Use only colors declared in `src/styles/tokens.css`. Use Mark's `plot_rules.R` palette, with the user-requested darker secondary text color `#48484a`; do not summarize it as a black/white/grey/blue palette.
 - Preserve official school colors inside school-logo image assets, but do not reuse those brand colors in the interface.
 - Keep papers (`kind: paper`) separate from research-assistant work (`kind: project`). Never imply that every research project is a publication.
 - Keep the homepage as a concise introduction and directory. Put the full research list only on `/research/`.
@@ -17,4 +17,4 @@
 
 - Store project tags in `tags`, ordered from topic to research approach and specific methods. Render them as one flowing list without a Methods or Keywords heading.
 - Preserve complete project titles and substantive summaries, including key design details, results, and Mark's contributions when established.
-- Keep research appointments separate from degree education.
+- Keep Stanford, Northwestern, and UIUC together in the Education section; do not add a separate Research appointment section.

@@ -5,6 +5,8 @@
   --palette-grid: #e5e5ea;
   --palette-reference: #c7c7cc;
   --palette-box-border: #636366;
+  /* Darker secondary text requested for the website. */
+  --palette-secondary-text: #48484a;
 
   --palette-treatment-control: #8bc48b;
   --palette-treatment-saliency: #2196f3;
@@ -26,7 +28,7 @@
   /* Website roles use a restrained subset of the same palette. */
   --color-background: var(--palette-white);
   --color-text: var(--palette-text);
-  --color-muted: var(--palette-box-border);
+  --color-muted: var(--palette-secondary-text);
   --color-border: var(--palette-grid);
   --color-border-strong: var(--palette-reference);
   --color-accent: var(--palette-treatment-control);
