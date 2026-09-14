@@ -46,8 +46,8 @@ const published = new Intl.DateTimeFormat("en", {
 <style>
   .article {
     width: min(calc(100% - (2 * var(--page-gutter))), var(--reading-width));
-    padding-top: clamp(4.5rem, 9vw, 7.5rem);
-    padding-bottom: clamp(6rem, 12vw, 10rem);
+    padding-top: clamp(4rem, 7vw, 6rem);
+    padding-bottom: clamp(5rem, 9vw, 7.5rem);
   }
 
   .back {
@@ -60,16 +60,16 @@ const published = new Intl.DateTimeFormat("en", {
   header h1 {
     margin: 2rem 0 0;
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 7vw, 5.25rem);
+    font-size: var(--text-page-title);
     font-weight: 500;
-    letter-spacing: -0.045em;
-    line-height: 1;
+    letter-spacing: -0.038em;
+    line-height: 1.04;
   }
 
   .summary {
     margin: 1.5rem 0 0;
     color: var(--color-muted);
-    font-size: clamp(1.08rem, 2vw, 1.3rem);
+    font-size: clamp(1.02rem, 1.5vw, 1.16rem);
     line-height: 1.6;
   }
 
@@ -83,8 +83,8 @@ const published = new Intl.DateTimeFormat("en", {
   }
 
   .article-body {
-    margin-top: clamp(3.5rem, 8vw, 6rem);
-    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+    padding-top: clamp(2.25rem, 5vw, 3.5rem);
     border-top: 1px solid var(--color-border);
   }
 
@@ -98,11 +98,11 @@ const published = new Intl.DateTimeFormat("en", {
   }
 
   .article-body :global(h2) {
-    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    font-size: clamp(1.55rem, 3vw, 2rem);
   }
 
   .article-body :global(h3) {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 
   .article-body :global(p),
@@ -112,7 +112,7 @@ const published = new Intl.DateTimeFormat("en", {
   }
 
   .article-body :global(a) {
-    color: var(--color-accent);
+    color: var(--color-link);
     text-underline-offset: 0.24em;
   }
 

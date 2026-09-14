@@ -8,6 +8,8 @@ const projects = defineCollection({
     title: z.string(),
     order: z.number(),
     summary: z.string(),
+    kind: z.enum(["paper", "project"]),
+    tone: z.enum(["accepted", "review", "ongoing", "archive"]),
     status: z.string().optional(),
     collaborators: z.array(z.string()).default([]),
     methods: z.array(z.string()).default([]),

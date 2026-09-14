@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import PageHeading from "../../components/PageHeading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
@@ -17,10 +18,10 @@ const formatDate = (date?: Date) =>
   description="Talks and presentation slides by Jialong (Mark) Li."
 >
   <main id="main-content" class="page shell">
-    <header class="page-heading">
-      <h1>Talks</h1>
-      <p>Research presentations and technical reading-group notes.</p>
-    </header>
+    <PageHeading
+      title="Talks"
+      description="Research presentations and technical reading-group notes."
+    />
 
     <ol class="talk-list">
       {
@@ -51,32 +52,8 @@ const formatDate = (date?: Date) =>
 <style>
   .page {
     min-height: 68vh;
-    padding-top: clamp(5rem, 10vw, 8rem);
-    padding-bottom: clamp(6rem, 12vw, 10rem);
-  }
-
-  .page-heading {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    align-items: end;
-    padding-bottom: clamp(3rem, 7vw, 5.5rem);
-  }
-
-  h1 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(3.6rem, 8vw, 6.5rem);
-    font-weight: 500;
-    letter-spacing: -0.05em;
-    line-height: 0.92;
-  }
-
-  .page-heading > p {
-    max-width: 34rem;
-    margin: 0;
-    color: var(--color-muted);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    padding-top: clamp(4rem, 7vw, 6rem);
+    padding-bottom: clamp(5rem, 9vw, 7.5rem);
   }
 
   .talk-list {
@@ -91,23 +68,35 @@ const formatDate = (date?: Date) =>
     grid-template-columns: 1fr auto;
     gap: 2rem;
     align-items: end;
-    padding: clamp(2.25rem, 5vw, 3.5rem) 0;
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
     border-top: 1px solid var(--color-border);
   }
 
   .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin: 0 0 0.7rem;
-    color: var(--color-accent);
+    color: var(--color-text);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.075em;
     text-transform: uppercase;
   }
 
+  .eyebrow::before {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--color-accent);
+    content: "";
+  }
+
   h2 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-size: var(--text-card-title);
     font-weight: 500;
     letter-spacing: -0.028em;
     line-height: 1.15;
@@ -129,20 +118,12 @@ const formatDate = (date?: Date) =>
   }
 
   .talk-list a:hover {
-    color: var(--color-accent);
+    color: var(--color-link);
   }
 
   @media (max-width: 680px) {
-    .page-heading,
     .talk-list li {
       grid-template-columns: 1fr;
-    }
-
-    .page-heading {
-      gap: 1.25rem;
-    }
-
-    .talk-list li {
       align-items: start;
       gap: 1.25rem;
     }

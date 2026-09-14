@@ -11,10 +11,13 @@ npm run dev
 
 ## Content
 
-- `src/content/projects/`: research projects
+- `src/content/projects/`: papers and research projects, labeled separately in frontmatter
 - `src/content/blog/`: Markdown and MDX posts
 - `src/content/slides/`: slide metadata
 - `public/slides/`: compiled PDF slides
+
+The homepage is a compact introduction and directory. Research lives on its own `/research/`
+page, where publications are separated from research-assistant projects.
 
 Pushing to `astro-redesign` runs a production build without changing the live site. Merging the finished redesign into `master` deploys it through GitHub Pages.
 

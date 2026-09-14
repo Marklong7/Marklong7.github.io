@@ -10,7 +10,7 @@ const { project, index } = Astro.props;
 const number = String(index + 1).padStart(2, "0");
 ---
 
-<article class="project">
+<article class="project" data-tone={project.data.tone}>
   <p class="number" aria-hidden="true">{number}</p>
 
   <div class="project-copy">
@@ -54,9 +54,9 @@ const number = String(index + 1).padStart(2, "0");
 <style>
   .project {
     display: grid;
-    grid-template-columns: 2.25rem minmax(0, 1fr) minmax(13rem, 0.48fr);
+    grid-template-columns: 1.75rem minmax(0, 1.2fr) minmax(12rem, 0.55fr);
     gap: clamp(1rem, 3vw, 2.5rem);
-    padding: clamp(2rem, 5vw, 3.75rem) 0;
+    padding: clamp(1.85rem, 4vw, 2.75rem) 0;
     border-top: 1px solid var(--color-border);
   }
 
@@ -69,8 +69,11 @@ const number = String(index + 1).padStart(2, "0");
   }
 
   .status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin: 0 0 0.7rem;
-    color: var(--color-accent);
+    color: var(--color-text);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.075em;
@@ -78,22 +81,43 @@ const number = String(index + 1).padStart(2, "0");
     text-transform: uppercase;
   }
 
+  .status::before {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--color-muted);
+    content: "";
+  }
+
+  .project[data-tone="accepted"] .status::before {
+    background: var(--color-accent);
+  }
+
+  .project[data-tone="review"] .status::before {
+    background: var(--color-status-review);
+  }
+
+  .project[data-tone="ongoing"] .status::before {
+    background: var(--color-status-active);
+  }
+
   h3 {
     max-width: 46rem;
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+    font-size: var(--text-card-title);
     font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
+    letter-spacing: -0.02em;
+    line-height: 1.24;
   }
 
   .summary {
     max-width: 43rem;
     margin: 1rem 0 0;
     color: var(--color-muted);
-    font-size: 0.95rem;
-    line-height: 1.75;
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 
   .links {
@@ -111,7 +135,7 @@ const number = String(index + 1).padStart(2, "0");
   }
 
   .links a:hover {
-    color: var(--color-accent);
+    color: var(--color-link);
   }
 
   .project-meta {

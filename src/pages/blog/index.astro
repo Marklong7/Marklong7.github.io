@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import PageHeading from "../../components/PageHeading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
@@ -17,10 +18,10 @@ const formatDate = (date: Date) =>
   description="Research notes and essays by Jialong (Mark) Li."
 >
   <main id="main-content" class="page shell">
-    <header class="page-heading">
-      <h1>Blog</h1>
-      <p>Notes on experiments, modeling, machine learning, and research practice.</p>
-    </header>
+    <PageHeading
+      title="Blog"
+      description="Notes on experiments, modeling, machine learning, and research practice."
+    />
 
     {
       posts.length > 0 ? (
@@ -47,32 +48,8 @@ const formatDate = (date: Date) =>
 <style>
   .page {
     min-height: 68vh;
-    padding-top: clamp(5rem, 10vw, 8rem);
-    padding-bottom: clamp(6rem, 12vw, 10rem);
-  }
-
-  .page-heading {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    align-items: end;
-    padding-bottom: clamp(3rem, 7vw, 5.5rem);
-  }
-
-  h1 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(3.6rem, 8vw, 6.5rem);
-    font-weight: 500;
-    letter-spacing: -0.05em;
-    line-height: 0.92;
-  }
-
-  .page-heading p {
-    max-width: 34rem;
-    margin: 0;
-    color: var(--color-muted);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    padding-top: clamp(4rem, 7vw, 6rem);
+    padding-bottom: clamp(5rem, 9vw, 7.5rem);
   }
 
   .post-list {
@@ -90,14 +67,14 @@ const formatDate = (date: Date) =>
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
-    padding: 2.5rem 0;
+    padding: 2.1rem 0;
     text-decoration: none;
   }
 
   .post-list h2 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.45rem, 2.7vw, 2rem);
+    font-size: var(--text-card-title);
     font-weight: 500;
     letter-spacing: -0.025em;
     line-height: 1.2;
@@ -117,7 +94,7 @@ const formatDate = (date: Date) =>
   }
 
   .post-list a:hover h2 {
-    color: var(--color-accent);
+    color: var(--color-link);
   }
 
   .empty-state {
@@ -129,16 +106,8 @@ const formatDate = (date: Date) =>
   }
 
   @media (max-width: 680px) {
-    .page-heading,
     .post-list a {
       grid-template-columns: 1fr;
-    }
-
-    .page-heading {
-      gap: 1.25rem;
-    }
-
-    .post-list a {
       gap: 1rem;
     }
   }
