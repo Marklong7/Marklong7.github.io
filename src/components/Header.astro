@@ -2,8 +2,8 @@
 const pathname = Astro.url.pathname;
 const navItems = [
   { label: "Research", href: "/research/", active: pathname.startsWith("/research") },
+  { label: "Talk", href: "/talks/", active: pathname.startsWith("/talks") },
   { label: "Blog", href: "/blog/", active: pathname.startsWith("/blog") },
-  { label: "Talks", href: "/talks/", active: pathname.startsWith("/talks") },
 ];
 ---
 
