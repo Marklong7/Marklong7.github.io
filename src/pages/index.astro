@@ -23,28 +23,23 @@ const affiliations = [
 <BaseLayout>
   <main id="main-content">
     <section class="hero shell" aria-labelledby="page-title">
-      <div class="hero-heading">
-        <h1 id="page-title">Jialong <span>(Mark)</span> Li</h1>
-        <p class="role">Predoctoral Research Fellow · Stanford Graduate School of Business</p>
-      </div>
-
-      <div class="hero-details">
-        <div>
-          <p class="introduction">
-            Hi, I’m Jialong (Mark) Li, a predoctoral research fellow at Stanford Graduate School of
-            Business. My research sits at the intersection of <strong>quantitative marketing</strong>
-            and <strong>operations, information &amp; technology</strong>.
-          </p>
+      <div class="hero-layout">
+        <div class="hero-heading">
+          <h1 id="page-title">Jialong (Mark) Li</h1>
+          <p class="role">Predoctoral Research Fellow · Stanford Graduate School of Business</p>
         </div>
 
-        <div class="background-copy">
-          <p>
-            I study how algorithms, data, and AI shape consumer behavior and digital markets,
-            combining field experiments, econometric models, and machine learning.
+        <div class="hero-copy">
+          <p class="introduction">
+            Hi, I’m Jialong (Mark) Li, a predoctoral research fellow at Stanford Graduate School of
+            Business. I work at the intersection of quantitative marketing and Operations,
+            Information &amp; Technology, studying how algorithms, data, and AI shape consumer
+            behavior and digital markets.
           </p>
           <p>
-            Before Stanford, I studied statistics and computer science at UIUC, then earned an M.S.
-            in Machine Learning and Data Science from Northwestern University.
+            My work combines field experiments, econometric models, and machine learning. Before
+            Stanford, I studied statistics and computer science at UIUC and earned an M.S. in
+            Machine Learning and Data Science from Northwestern University.
           </p>
         </div>
       </div>
@@ -73,21 +68,18 @@ const affiliations = [
 
     <section class="directory shell" aria-label="Explore the website">
       <a href="/research/">
-        <span class="index" aria-hidden="true">01</span>
         <h2>Research</h2>
         <p>Papers and clearly labeled research projects in privacy, markets, and machine learning.</p>
         <span class="action">View research <span aria-hidden="true">→</span></span>
       </a>
 
       <a href="/blog/">
-        <span class="index" aria-hidden="true">02</span>
         <h2>Blog</h2>
         <p>Research notes, methods, figures, and longer-form ideas.</p>
         <span class="action">Read notes <span aria-hidden="true">→</span></span>
       </a>
 
       <a href="/talks/">
-        <span class="index" aria-hidden="true">03</span>
         <h2>Talks</h2>
         <p>Presentation slides and technical reading-group materials.</p>
         <span class="action">View talks <span aria-hidden="true">→</span></span>
@@ -96,19 +88,20 @@ const affiliations = [
 
     <section class="say-hello shell" aria-labelledby="hello-title">
       <div class="hello-heading">
-        <span class="index" aria-hidden="true">04</span>
         <h2 id="hello-title">Say hello</h2>
       </div>
       <div class="hello-copy">
         <p>
-          Questions, collaborations, or just want to say hello? Write to
-          <a href="mailto:markli@stanford.edu">markli@stanford.edu</a> or connect with me on
+          Feel free to reach out about research, collaboration, or anything interesting.
+        </p>
+        <div class="hello-links">
+          <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
           <a
             href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
             target="_blank"
             rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
-          >.
-        </p>
+          >
+        </div>
       </div>
     </section>
   </main>
@@ -116,12 +109,15 @@ const affiliations = [
 
 <style>
   .hero {
-    padding-top: clamp(4.25rem, 7vw, 6.5rem);
-    padding-bottom: clamp(3.75rem, 7vw, 5.75rem);
+    padding-top: clamp(3.75rem, 6vw, 5.25rem);
+    padding-bottom: clamp(3.25rem, 6vw, 4.75rem);
   }
 
-  .hero-heading {
-    max-width: 68rem;
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(23rem, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 7vw, 6.5rem);
+    align-items: start;
   }
 
   h1 {
@@ -133,64 +129,45 @@ const affiliations = [
     line-height: 0.98;
   }
 
-  h1 span {
-    color: var(--color-muted);
-  }
-
   .role {
-    margin: 1rem 0 0;
+    max-width: 26rem;
+    margin: 0.85rem 0 0;
     color: var(--color-muted);
     font-size: 0.9rem;
     line-height: 1.55;
   }
 
-  .hero-details {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.8fr);
-    gap: clamp(2.5rem, 6vw, 5.5rem);
-    align-items: start;
-    margin-top: clamp(3rem, 5vw, 4.5rem);
-  }
-
   .introduction {
-    max-width: 43rem;
+    max-width: 38rem;
     margin: 0;
     font-family: var(--font-body);
-    font-size: var(--text-lead);
+    font-size: 1.08rem;
     font-weight: 400;
-    letter-spacing: -0.012em;
-    line-height: 1.55;
+    letter-spacing: -0.008em;
+    line-height: 1.65;
   }
 
-  .introduction strong {
-    font-weight: 600;
-  }
-
-  .background-copy {
-    display: grid;
-    gap: 0.9rem;
-  }
-
-  .background-copy p {
-    margin: 0;
+  .hero-copy > p + p {
+    max-width: 36rem;
+    margin: 1.15rem 0 0;
     color: var(--color-muted);
-    font-size: 0.88rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.75;
   }
 
   .affiliations {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: clamp(3.25rem, 6vw, 5rem) 0 0;
-    padding: 1.4rem 0 0;
+    margin: clamp(3rem, 5vw, 4rem) 0 0;
+    padding: 1.6rem 0 0;
     border-top: 1px solid var(--color-border);
     list-style: none;
   }
 
   .affiliations li {
     display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1.15rem;
     align-items: center;
     padding-right: clamp(1rem, 3vw, 2.5rem);
   }
@@ -202,14 +179,14 @@ const affiliations = [
 
   .institution-logo {
     display: block;
-    width: 3rem;
-    height: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 
   .affiliations h2 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
     line-height: 1.35;
   }
@@ -217,7 +194,7 @@ const affiliations = [
   .affiliations p {
     margin: 0.28rem 0 0;
     color: var(--color-muted);
-    font-size: 0.69rem;
+    font-size: 0.72rem;
     line-height: 1.45;
   }
 
@@ -231,9 +208,9 @@ const affiliations = [
 
   .directory > a {
     display: flex;
-    min-height: 14.5rem;
+    min-height: 12.75rem;
     flex-direction: column;
-    padding: 1.7rem clamp(1.25rem, 3vw, 2.25rem) 1.8rem;
+    padding: 1.9rem clamp(1.25rem, 3vw, 2.25rem);
     text-decoration: none;
   }
 
@@ -241,19 +218,12 @@ const affiliations = [
     border-left: 1px solid var(--color-border);
   }
 
-  .index {
-    color: var(--color-muted);
-    font-size: 0.68rem;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.08em;
-  }
-
   .directory h2 {
-    margin: 1.85rem 0 0;
-    font-family: var(--font-display);
-    font-size: var(--text-card-title);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
     line-height: 1.2;
   }
 
@@ -287,18 +257,26 @@ const affiliations = [
   }
 
   .hello-heading h2 {
-    margin: 1rem 0 0;
-    font-family: var(--font-display);
-    font-size: var(--text-card-title);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
   }
 
   .hello-copy p {
     max-width: 34rem;
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.75;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .hello-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.25rem;
   }
 
   .hello-copy a {
@@ -308,12 +286,9 @@ const affiliations = [
   }
 
   @media (max-width: 720px) {
-    .hero-details {
+    .hero-layout {
       grid-template-columns: 1fr;
-    }
-
-    .hero-details {
-      gap: 2rem;
+      gap: 2.25rem;
     }
 
     .affiliations {
@@ -336,7 +311,7 @@ const affiliations = [
     }
 
     .directory > a {
-      min-height: 11.5rem;
+      min-height: 10.5rem;
       padding-inline: 0;
     }
 

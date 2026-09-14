@@ -8,7 +8,7 @@
 - Preserve official school colors inside school-logo image assets, but do not reuse those brand colors in the interface.
 - Keep papers (`kind: paper`) separate from research-assistant work (`kind: project`). Never imply that every research project is a publication.
 - Keep the homepage as a concise introduction and directory. Put the full research list only on `/research/`.
-- Use Zilla Slab selectively for the name and major headings. Use Inter for navigation, body copy, metadata, and blog text.
+- Use the lightweight system editorial serif stack only for the main name, page titles, and research titles. Use Inter for navigation, section headings, body copy, metadata, and blog text.
 - Preserve a restrained, spacious design inspired by Dean Eckles's typography and clean layout. Do not copy another researcher's site directly.
 - Avoid gradients, heavy shadows, excessive color, decorative animation, and unnecessary page hierarchy.
 - Keep formulas compatible with the configured remark-math and KaTeX pipeline.
