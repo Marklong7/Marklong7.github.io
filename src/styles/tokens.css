@@ -45,6 +45,6 @@
   /* Four levels only: display, heading, body, and metadata. */
   --text-display: clamp(2.25rem, 3.8vw, 3rem);
   --text-heading: clamp(1.15rem, 1.6vw, 1.35rem);
-  --text-body: 1rem;
-  --text-meta: 0.875rem;
+  --text-body: 1.0625rem;
+  --text-meta: 0.9375rem;
 }

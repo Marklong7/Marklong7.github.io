@@ -34,11 +34,18 @@ const affiliations = [
 
         <div class="hero-copy">
           <p class="introduction">
-            Hi, I’m Jialong (Mark) Li, a predoctoral research fellow at Stanford Graduate School of
-            Business. I study how AI systems interact with user intent, market equilibrium, and
-            social welfare. Working across Quantitative Marketing and Operations, Information &amp;
-            Technology, I combine the practicality of computer science with the rigor of economics
-            to produce implementable, testable designs for AI systems.
+            Hi, I’m Jialong (Mark) Li, a predoc at Stanford Graduate School of Business. My work
+            focuses on Quantitative Marketing and Operations, Information &amp; Technology.
+          </p>
+          <p class="introduction">
+            My long-term goal is to help build AI systems that create lasting value for firms,
+            users, and society. Reaching that goal means treating system performance, user
+            behavior, market dynamics, and social welfare as parts of the same design problem from
+            the outset.
+          </p>
+          <p class="introduction">
+            Understanding and shaping the organic interplay among AI system design, user behavior,
+            and market dynamics requires both computer science and the social sciences.
           </p>
           <div class="intro-links" aria-label="Contact links">
             <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
@@ -149,10 +156,14 @@ const affiliations = [
     max-width: 38rem;
     margin: 0;
     font-family: var(--font-body);
-    font-size: var(--text-heading);
+    font-size: var(--text-body);
     font-weight: 400;
     letter-spacing: -0.008em;
-    line-height: 1.55;
+    line-height: 1.62;
+  }
+
+  .introduction + .introduction {
+    margin-top: 1rem;
   }
 
   .intro-links {
