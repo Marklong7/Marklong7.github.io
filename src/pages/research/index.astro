@@ -18,13 +18,12 @@ const projects = entries.filter((entry) => entry.data.kind === "project");
   <main id="main-content" class="page shell">
     <PageHeading
       title="Research"
-      description="Publications and selected research-assistant work, clearly labeled by stage."
+      description="Papers and research projects."
     />
 
     <section class="research-group" aria-labelledby="papers-title">
       <div class="group-heading">
         <h2 id="papers-title">Papers</h2>
-        <p>Accepted and under-review work</p>
       </div>
       <div class="research-list">
         {papers.map((paper) => <ProjectCard project={paper} />)}
@@ -34,7 +33,6 @@ const projects = entries.filter((entry) => entry.data.kind === "project");
     <section class="research-group" aria-labelledby="projects-title">
       <div class="group-heading">
         <h2 id="projects-title">Research projects</h2>
-        <p>Ongoing and earlier RA work · not publications</p>
       </div>
       <div class="research-list">
         {

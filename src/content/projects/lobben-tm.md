@@ -4,7 +4,7 @@ order: 5
 kind: paper
 tone: review
 summary: >-
-  A benchmark of limit-order-book and general time-series models for price and return prediction on FI-2010. Feature ablations isolate the contribution of temporal information across model families.
+  A benchmark for deep learning on limit order book data, with a focus on temporal modeling. My work compared LOB-specific and general time-series models for price and return prediction on FI-2010, using feature ablations to identify how temporal information contributes to prediction.
 status: "Under review · ICLR 2026"
 collaborators:
   - Weijian Li
@@ -18,9 +18,8 @@ collaborators:
   - Jingya Xun
   - Jerry Yao-Chieh Hu
   - Han Liu
-methods:
-  - Time series
-  - Benchmarking
-  - Feature ablation
-  - Market microstructure
+tags:
+  - Limit order books
+  - Time-series forecasting
+  - Deep learning
 ---

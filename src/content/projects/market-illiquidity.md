@@ -8,9 +8,9 @@ summary: >-
 status: "Research project"
 collaborators:
   - Haim Mendelson
-methods:
+tags:
+  - Market illiquidity
   - Event study
+  - LLM
   - Machine learning
-  - Language models
-  - Financial data
 ---

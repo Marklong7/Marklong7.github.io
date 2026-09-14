@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const affiliations = [
   {
     name: "Stanford University",
-    detail: "Predoctoral Fellow (non-degree) · Expected 2027",
+    detail: "Predoctoral Research Fellow · 2025–Present",
     viewBox: "64 34 151 150",
   },
   {
@@ -61,48 +61,48 @@ const affiliations = [
         </div>
       </div>
 
-      <section class="education" aria-labelledby="education-title">
-        <h2 id="education-title">Education</h2>
-        <ol class="affiliations">
-          {
-            affiliations.map((affiliation) => (
-              <li>
-                <svg
-                  class="institution-logo"
-                  viewBox={affiliation.viewBox}
-                  role="img"
-                  aria-label={`${affiliation.name} logo`}
-                >
-                  <image href="/images/education-logos.png" width="264" height="644" />
-                </svg>
-                <div>
-                  <h3>{affiliation.name}</h3>
-                  <p>{affiliation.detail}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ol>
-      </section>
+      <div class="background-groups">
+        {[
+          { title: "Research appointment", id: "appointment-title", entries: affiliations.slice(0, 1) },
+          { title: "Education", id: "education-title", entries: affiliations.slice(1) },
+        ].map((group) => (
+          <section class="education" aria-labelledby={group.id}>
+            <h2 id={group.id}>{group.title}</h2>
+            <ol class="affiliations">
+              {group.entries.map((affiliation) => (
+                <li>
+                  <svg class="institution-logo" viewBox={affiliation.viewBox} role="img" aria-label={`${affiliation.name} logo`}>
+                    <image href="/images/education-logos.png" width="264" height="644" />
+                  </svg>
+                  <div>
+                    <h3>{affiliation.name}</h3>
+                    <p>{affiliation.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
     </section>
 
     <section class="directory shell" aria-label="Explore the website">
       <a href="/research/">
         <h2>Research</h2>
-        <p>Papers and clearly labeled research projects in privacy, markets, and machine learning.</p>
+        <p>Papers and ongoing research.</p>
         <span class="action">View research <span aria-hidden="true">→</span></span>
       </a>
 
       <a href="/talks/">
         <h2>Talk</h2>
-        <p>Presentation slides and technical reading-group materials.</p>
+        <p>Research presentations and reading-group slides.</p>
         <span class="action">View talks <span aria-hidden="true">→</span></span>
       </a>
 
       <a href="/blog/">
         <h2>Blog</h2>
-        <p>Research notes, methods, figures, and longer-form ideas.</p>
-        <span class="action">Read notes <span aria-hidden="true">→</span></span>
+        <p>Notes on research, methods, and ideas.</p>
+        <span class="action">Read blog <span aria-hidden="true">→</span></span>
       </a>
     </section>
 
@@ -180,7 +180,10 @@ const affiliations = [
     text-underline-offset: 0.25em;
   }
 
-  .education {
+  .background-groups {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 1.5rem;
     margin-top: clamp(3rem, 5vw, 4rem);
   }
 
@@ -194,11 +197,15 @@ const affiliations = [
 
   .affiliations {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin: 0;
     padding: 1.6rem 0 0;
     border-top: 1px solid var(--color-border);
     list-style: none;
+  }
+
+  .education:first-child .affiliations {
+    grid-template-columns: 1fr;
   }
 
   .affiliations li {
@@ -286,6 +293,10 @@ const affiliations = [
   }
 
   @media (max-width: 720px) {
+    .background-groups {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
     .hero-layout {
       grid-template-columns: 1fr;
       gap: 2.25rem;

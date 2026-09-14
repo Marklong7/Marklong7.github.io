@@ -4,13 +4,12 @@ order: 2
 kind: project
 tone: ongoing
 summary: >-
-  A study of whether predicted listening intent can improve recommendation systems. Using 5.9 million impressions from 208,000 NetEase Cloud Music users, I compare structural choice models with DNN, VAE, and heterogeneous HMM benchmarks and study when intent adds predictive value.
+  A study of whether predicted listening intent can improve recommender systems. Using 5.9 million impressions from 208,000 NetEase Cloud Music users, I compare structural discrete choice models with DNN, VAE, and heterogeneous HMM benchmarks and study when intent adds predictive value.
 status: "Research project"
 collaborators:
   - Yuyan Wang
-methods:
-  - Discrete choice
+tags:
+  - RecSys
+  - Structural discrete choice models
   - Deep learning
-  - Latent intent
-  - Recommender systems
 ---

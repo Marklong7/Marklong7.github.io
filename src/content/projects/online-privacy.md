@@ -9,9 +9,9 @@ status: "Accepted · ACM EC 2026"
 collaborators:
   - Guy Aridor
   - Samuel Goldberg
-methods:
+tags:
+  - Online Privacy
   - Field experiment
-  - Hierarchical Bayes
-  - Conjoint analysis
-  - PPML
+  - Hierarchical Bayesian modeling
+  - Econometrics
 ---

@@ -27,24 +27,21 @@ const { project } = Astro.props;
     }
   </div>
 
-  <dl class="project-meta">
+  <div class="project-meta">
     {
       project.data.collaborators.length > 0 && (
         <div>
-          <dt>With</dt>
-          <dd>{project.data.collaborators.join(", ")}</dd>
+          <p class="meta-label">With</p>
+          <p class="meta-value">{project.data.collaborators.join(", ")}</p>
         </div>
       )
     }
     {
-      project.data.methods.length > 0 && (
-        <div>
-          <dt>Methods</dt>
-          <dd>{project.data.methods.join(" · ")}</dd>
-        </div>
+      project.data.tags.length > 0 && (
+        <p class="meta-value tags">{project.data.tags.join(" · ")}</p>
       )
     }
-  </dl>
+  </div>
 </article>
 
 <style>
@@ -139,7 +136,8 @@ const { project } = Astro.props;
     gap: 0.35rem;
   }
 
-  dt {
+  .meta-label {
+    margin: 0;
     color: var(--color-muted);
     font-size: var(--text-body);
     font-weight: 600;
@@ -147,7 +145,7 @@ const { project } = Astro.props;
     text-transform: uppercase;
   }
 
-  dd {
+  .meta-value {
     margin: 0;
     color: var(--color-text);
     font-size: var(--text-body);
