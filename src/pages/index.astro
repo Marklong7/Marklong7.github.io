@@ -26,7 +26,10 @@ const affiliations = [
       <div class="hero-layout">
         <div class="hero-heading">
           <h1 id="page-title">Jialong (Mark) Li</h1>
-          <p class="role">Predoctoral Research Fellow · Stanford Graduate School of Business</p>
+          <p class="role">
+            <span>Predoctoral Research Fellow</span>
+            <span>Stanford Graduate School of Business</span>
+          </p>
         </div>
 
         <div class="hero-copy">
@@ -92,7 +95,7 @@ const affiliations = [
       </div>
       <div class="hello-copy">
         <p>
-          Feel free to reach out about research, collaboration, or anything interesting.
+          The easiest way to reach me is by email. You can also connect with me on LinkedIn.
         </p>
         <div class="hello-links">
           <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
@@ -133,8 +136,21 @@ const affiliations = [
     max-width: 26rem;
     margin: 0.85rem 0 0;
     color: var(--color-muted);
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .role span {
+    display: block;
+  }
+
+  .role span:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .role span + span {
+    margin-top: 0.15rem;
   }
 
   .introduction {
@@ -151,8 +167,8 @@ const affiliations = [
     max-width: 36rem;
     margin: 1.15rem 0 0;
     color: var(--color-muted);
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .affiliations {
@@ -186,7 +202,7 @@ const affiliations = [
   .affiliations h2 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 1.35;
   }
@@ -194,8 +210,8 @@ const affiliations = [
   .affiliations p {
     margin: 0.28rem 0 0;
     color: var(--color-muted);
-    font-size: 0.72rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
 
   .directory {
@@ -221,7 +237,7 @@ const affiliations = [
   .directory h2 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.012em;
     line-height: 1.2;
@@ -259,7 +275,7 @@ const affiliations = [
   .hello-heading h2 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: -0.012em;
   }
@@ -268,7 +284,7 @@ const affiliations = [
     max-width: 34rem;
     margin: 0;
     color: var(--color-muted);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.7;
   }
 
@@ -281,6 +297,7 @@ const affiliations = [
 
   .hello-copy a {
     color: var(--color-link);
+    font-size: 0.95rem;
     font-weight: 600;
     text-underline-offset: 0.25em;
   }
