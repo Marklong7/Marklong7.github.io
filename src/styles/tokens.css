@@ -42,9 +42,8 @@
   --radius: 0.875rem;
   --page-gutter: clamp(1.25rem, 4vw, 3rem);
 
-  /* Four levels only: display, heading, body, and metadata. */
+  /* Three levels only: display, heading, and text. */
   --text-display: clamp(2.25rem, 3.8vw, 3rem);
-  --text-heading: clamp(1.15rem, 1.6vw, 1.35rem);
+  --text-heading: clamp(1.25rem, 1.6vw, 1.375rem);
   --text-body: 1.0625rem;
-  --text-meta: 0.9375rem;
 }
