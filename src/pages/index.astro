@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const affiliations = [
   {
     name: "Stanford University",
-    detail: "Predoctoral Research Fellow · 2025–present",
+    detail: "Predoctoral Fellow (non-degree) · Expected 2027",
     viewBox: "64 34 151 150",
   },
   {
@@ -35,38 +35,45 @@ const affiliations = [
         <div class="hero-copy">
           <p class="introduction">
             Hi, I’m Jialong (Mark) Li, a predoctoral research fellow at Stanford Graduate School of
-            Business. I work at the intersection of quantitative marketing and Operations,
-            Information &amp; Technology, studying how algorithms, data, and AI shape consumer
-            behavior and digital markets.
+            Business. I study how AI systems interact with user intent, market equilibrium, and
+            social welfare. Working across Quantitative Marketing and Operations, Information &amp;
+            Technology, I combine the practicality of computer science with the rigor of economics
+            to produce implementable, testable designs for AI systems.
           </p>
-          <p>
-            My work combines field experiments, econometric models, and machine learning. Before
-            Stanford, I studied statistics and computer science at UIUC and earned an M.S. in
-            Machine Learning and Data Science from Northwestern University.
-          </p>
+          <div class="intro-links" aria-label="Contact links">
+            <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
+            <a
+              href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
+              target="_blank"
+              rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
+            >
+          </div>
         </div>
       </div>
 
-      <ol class="affiliations" aria-label="Affiliations and education">
-        {
-          affiliations.map((affiliation) => (
-            <li>
-              <svg
-                class="institution-logo"
-                viewBox={affiliation.viewBox}
-                role="img"
-                aria-label={`${affiliation.name} logo`}
-              >
-                <image href="/images/education-logos.png" width="264" height="644" />
-              </svg>
-              <div>
-                <h2>{affiliation.name}</h2>
-                <p>{affiliation.detail}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
+      <section class="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <ol class="affiliations">
+          {
+            affiliations.map((affiliation) => (
+              <li>
+                <svg
+                  class="institution-logo"
+                  viewBox={affiliation.viewBox}
+                  role="img"
+                  aria-label={`${affiliation.name} logo`}
+                >
+                  <image href="/images/education-logos.png" width="264" height="644" />
+                </svg>
+                <div>
+                  <h3>{affiliation.name}</h3>
+                  <p>{affiliation.detail}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
     </section>
 
     <section class="directory shell" aria-label="Explore the website">
@@ -89,24 +96,6 @@ const affiliations = [
       </a>
     </section>
 
-    <section class="say-hello shell" aria-labelledby="hello-title">
-      <div class="hello-heading">
-        <h2 id="hello-title">Say hello</h2>
-      </div>
-      <div class="hello-copy">
-        <p>
-          The easiest way to reach me is by email. You can also connect with me on LinkedIn.
-        </p>
-        <div class="hello-links">
-          <a href="mailto:markli@stanford.edu">markli@stanford.edu</a>
-          <a
-            href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
-            target="_blank"
-            rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
-          >
-        </div>
-      </div>
-    </section>
   </main>
 </BaseLayout>
 
@@ -136,7 +125,7 @@ const affiliations = [
     max-width: 26rem;
     margin: 0.85rem 0 0;
     color: var(--color-muted);
-    font-size: 1.05rem;
+    font-size: var(--text-body);
     line-height: 1.45;
   }
 
@@ -157,24 +146,42 @@ const affiliations = [
     max-width: 38rem;
     margin: 0;
     font-family: var(--font-body);
-    font-size: 1.08rem;
+    font-size: var(--text-body);
     font-weight: 400;
     letter-spacing: -0.008em;
     line-height: 1.65;
   }
 
-  .hero-copy > p + p {
-    max-width: 36rem;
-    margin: 1.15rem 0 0;
-    color: var(--color-muted);
-    font-size: 1rem;
-    line-height: 1.7;
+  .intro-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.35rem;
+  }
+
+  .intro-links a {
+    color: var(--color-link);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    text-underline-offset: 0.25em;
+  }
+
+  .education {
+    margin-top: clamp(3rem, 5vw, 4rem);
+  }
+
+  .education > h2 {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-body);
+    font-size: var(--text-heading);
+    font-weight: 600;
+    letter-spacing: -0.012em;
   }
 
   .affiliations {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: clamp(3rem, 5vw, 4rem) 0 0;
+    margin: 0;
     padding: 1.6rem 0 0;
     border-top: 1px solid var(--color-border);
     list-style: none;
@@ -199,10 +206,10 @@ const affiliations = [
     height: 4.5rem;
   }
 
-  .affiliations h2 {
+  .affiliations h3 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--text-body);
     font-weight: 600;
     line-height: 1.35;
   }
@@ -210,7 +217,7 @@ const affiliations = [
   .affiliations p {
     margin: 0.28rem 0 0;
     color: var(--color-muted);
-    font-size: 0.88rem;
+    font-size: var(--text-meta);
     line-height: 1.55;
   }
 
@@ -237,7 +244,7 @@ const affiliations = [
   .directory h2 {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-size: var(--text-heading);
     font-weight: 600;
     letter-spacing: -0.012em;
     line-height: 1.2;
@@ -247,7 +254,7 @@ const affiliations = [
     max-width: 17rem;
     margin: 0.85rem 0 0;
     color: var(--color-muted);
-    font-size: 0.86rem;
+    font-size: var(--text-body);
     line-height: 1.65;
   }
 
@@ -255,51 +262,13 @@ const affiliations = [
     margin-top: auto;
     padding-top: 1.5rem;
     color: var(--color-text);
-    font-size: 0.8rem;
+    font-size: var(--text-meta);
     font-weight: 600;
   }
 
   .directory > a:hover h2,
   .directory > a:hover .action {
     color: var(--color-link);
-  }
-
-  .say-hello {
-    display: grid;
-    grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    padding-top: clamp(3.5rem, 7vw, 5.5rem);
-    padding-bottom: clamp(4.5rem, 8vw, 6.5rem);
-  }
-
-  .hello-heading h2 {
-    margin: 0;
-    font-family: var(--font-body);
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: -0.012em;
-  }
-
-  .hello-copy p {
-    max-width: 34rem;
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .hello-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-    margin-top: 1.25rem;
-  }
-
-  .hello-copy a {
-    color: var(--color-link);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-underline-offset: 0.25em;
   }
 
   @media (max-width: 720px) {
@@ -337,9 +306,5 @@ const affiliations = [
       border-left: 0;
     }
 
-    .say-hello {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
   }
 </style>

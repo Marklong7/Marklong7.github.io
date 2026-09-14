@@ -52,7 +52,7 @@ const published = new Intl.DateTimeFormat("en", {
 
   .back {
     color: var(--color-muted);
-    font-size: 0.85rem;
+    font-size: var(--text-meta);
     font-weight: 600;
     text-underline-offset: 0.28em;
   }
@@ -60,7 +60,7 @@ const published = new Intl.DateTimeFormat("en", {
   header h1 {
     margin: 2rem 0 0;
     font-family: var(--font-display);
-    font-size: var(--text-page-title);
+    font-size: var(--text-display);
     font-weight: 500;
     letter-spacing: -0.038em;
     line-height: 1.04;
@@ -69,7 +69,7 @@ const published = new Intl.DateTimeFormat("en", {
   .summary {
     margin: 1.5rem 0 0;
     color: var(--color-muted);
-    font-size: clamp(1.02rem, 1.5vw, 1.16rem);
+    font-size: var(--text-body);
     line-height: 1.6;
   }
 
@@ -79,7 +79,7 @@ const published = new Intl.DateTimeFormat("en", {
     gap: 0.5rem 1.25rem;
     margin-top: 1.5rem;
     color: var(--color-muted);
-    font-size: 0.78rem;
+    font-size: var(--text-meta);
   }
 
   .article-body {
@@ -97,17 +97,14 @@ const published = new Intl.DateTimeFormat("en", {
     line-height: 1.2;
   }
 
-  .article-body :global(h2) {
-    font-size: clamp(1.55rem, 3vw, 2rem);
-  }
-
+  .article-body :global(h2),
   .article-body :global(h3) {
-    font-size: 1.25rem;
+    font-size: var(--text-heading);
   }
 
   .article-body :global(p),
   .article-body :global(li) {
-    font-size: 1.02rem;
+    font-size: var(--text-body);
     line-height: 1.85;
   }
 
@@ -123,7 +120,7 @@ const published = new Intl.DateTimeFormat("en", {
   .article-body :global(figcaption) {
     margin-top: 0.75rem;
     color: var(--color-muted);
-    font-size: 0.8rem;
+    font-size: var(--text-meta);
     line-height: 1.55;
   }
 
@@ -140,14 +137,14 @@ const published = new Intl.DateTimeFormat("en", {
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
     background: var(--color-background);
-    font-size: 0.86rem;
+    font-size: var(--text-meta);
   }
 
   .article-body :global(:not(pre) > code) {
     padding: 0.12em 0.35em;
     border: 1px solid var(--color-border);
     border-radius: 0.3rem;
-    font-size: 0.9em;
+    font-size: var(--text-meta);
   }
 
   .article-body :global(.katex-display) {
