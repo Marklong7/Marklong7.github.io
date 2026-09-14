@@ -8,7 +8,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="project" data-tone={project.data.tone}>
+<article class="project" data-tone={project.data.tone} data-kind={project.data.kind}>
   <div class="project-copy">
     {project.data.status && <p class="status">{project.data.status}</p>}
     {project.data.period && <p class="period">{project.data.period}</p>}
@@ -91,7 +91,7 @@ const { project } = Astro.props;
     background: var(--color-status-review);
   }
 
-  .project[data-tone="ongoing"] .status::before {
+  .project[data-kind="project"] .status::before {
     background: var(--color-status-active);
   }
 

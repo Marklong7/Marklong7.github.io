@@ -20,4 +20,4 @@
 - Keep Stanford, Northwestern, and UIUC together in the Education section; do not add a separate Research appointment section.
 
 - Label all non-paper entries Research project, including completed projects. Store verified project date ranges in `period`; do not substitute appointment dates for project dates.
-- Use blue, not red, for active research project status indicators.
+- Use the same blue status indicator for every Research project, including completed projects; do not vary their styling by tone.
