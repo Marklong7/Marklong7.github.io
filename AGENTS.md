@@ -18,3 +18,6 @@
 - Store project tags in `tags`, ordered from topic to research approach and specific methods. Render them as one flowing list without a Methods or Keywords heading.
 - Preserve complete project titles and substantive summaries, including key design details, results, and Mark's contributions when established.
 - Keep Stanford, Northwestern, and UIUC together in the Education section; do not add a separate Research appointment section.
+
+- Label all non-paper entries Research project, including completed projects. Store verified project date ranges in `period`; do not substitute appointment dates for project dates.
+- Use blue, not red, for active research project status indicators.
