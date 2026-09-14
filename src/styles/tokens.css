@@ -12,4 +12,5 @@
   --content-width: 72rem;
   --reading-width: 44rem;
   --radius: 1rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
 }

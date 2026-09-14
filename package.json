@@ -10,17 +10,17 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "latest",
-    "@astrojs/markdown-remark": "latest",
-    "@astrojs/mdx": "latest",
-    "@astrojs/rss": "latest",
-    "@astrojs/sitemap": "latest",
-    "@fontsource/inter": "latest",
-    "@fontsource/zilla-slab": "latest",
-    "astro": "latest",
-    "katex": "latest",
-    "rehype-katex": "latest",
-    "remark-math": "latest",
-    "typescript": "latest"
+    "@astrojs/check": "0.9.10",
+    "@astrojs/markdown-remark": "7.3.1",
+    "@astrojs/mdx": "8.0.1",
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/zilla-slab": "5.3.0",
+    "astro": "7.3.2",
+    "katex": "0.18.7",
+    "rehype-katex": "7.0.1",
+    "remark-math": "6.0.0",
+    "typescript": "6.0.3"
   }
 }

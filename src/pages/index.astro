@@ -1,43 +1,157 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 ---
 
 <BaseLayout>
-  <main>
-    <h1>Jialong (Mark) Li</h1>
-    <p>Personal research website — project structure initialized.</p>
+  <main id="main-content">
+    <section class="hero shell" aria-labelledby="page-title">
+      <div class="hero-heading">
+        <h1 id="page-title">Jialong <span>(Mark)</span> Li</h1>
+        <p class="role">Predoctoral Research Fellow · Stanford Graduate School of Business</p>
+      </div>
+
+      <div class="hero-details">
+        <p class="introduction">
+          I study how algorithmic systems, data, and AI shape consumer behavior and digital
+          markets. My work combines field experiments, econometric models, and machine learning.
+        </p>
+
+        <div class="contact" aria-label="Contact links">
+          <a href="mailto:markli@stanford.edu">Email</a>
+          <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="research shell" id="research" aria-labelledby="research-title">
+      <div class="section-heading">
+        <h2 id="research-title">Research</h2>
+        <p>Selected current and recent work.</p>
+      </div>
+
+      <div class="project-list">
+        {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
+  .hero {
+    padding-top: clamp(5.5rem, 11vw, 9.5rem);
+    padding-bottom: clamp(6rem, 12vw, 10rem);
   }
 
-  :global(body) {
-    margin: 0;
-    background: var(--color-background);
-    color: var(--color-text);
-    font-family: var(--font-body);
-  }
-
-  main {
-    width: min(calc(100% - 3rem), var(--content-width));
-    margin: 0 auto;
-    padding: 8rem 0;
+  .hero-heading {
+    max-width: 68rem;
   }
 
   h1 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(3.7rem, 8.6vw, 7rem);
     font-weight: 500;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.052em;
+    line-height: 0.92;
   }
 
-  p {
-    margin-top: 1.5rem;
+  h1 span {
     color: var(--color-muted);
-    font-size: 1.125rem;
+  }
+
+  .role {
+    margin: 1.45rem 0 0;
+    color: var(--color-muted);
+    font-size: clamp(0.94rem, 1.6vw, 1.05rem);
+    line-height: 1.55;
+  }
+
+  .hero-details {
+    display: grid;
+    grid-template-columns: minmax(0, 2.15fr) minmax(10rem, 0.85fr);
+    gap: clamp(2.5rem, 8vw, 8rem);
+    align-items: end;
+    margin-top: clamp(4.5rem, 9vw, 8rem);
+  }
+
+  .introduction {
+    max-width: 47rem;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.65rem, 3.2vw, 2.55rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    padding-bottom: 0.35rem;
+  }
+
+  .contact a {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-underline-offset: 0.3em;
+  }
+
+  .contact a:hover {
+    color: var(--color-accent);
+  }
+
+  .research {
+    padding-bottom: clamp(6rem, 12vw, 10rem);
+    scroll-margin-top: 6rem;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .section-heading p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  .project-list {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 720px) {
+    .hero-details,
+    .section-heading {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-details {
+      gap: 2rem;
+    }
+
+    .section-heading {
+      gap: 0.75rem;
+    }
   }
 </style>

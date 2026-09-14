@@ -1,0 +1,150 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0),
+);
+
+const formatDate = (date?: Date) =>
+  date
+    ? new Intl.DateTimeFormat("en", { year: "numeric", month: "short" }).format(date)
+    : undefined;
+---
+
+<BaseLayout
+  title="Talks · Jialong (Mark) Li"
+  description="Talks and presentation slides by Jialong (Mark) Li."
+>
+  <main id="main-content" class="page shell">
+    <header class="page-heading">
+      <h1>Talks</h1>
+      <p>Research presentations and technical reading-group notes.</p>
+    </header>
+
+    <ol class="talk-list">
+      {
+        talks.map((talk) => {
+          const href = talk.data.pdf ?? talk.data.url;
+          const date = formatDate(talk.data.date);
+
+          return (
+            <li>
+              <div class="talk-copy">
+                <p class="eyebrow">
+                  {[talk.data.event, date].filter(Boolean).join(" · ")}
+                </p>
+                <h2>{talk.data.title}</h2>
+                <p class="description">{talk.data.description}</p>
+              </div>
+              <a href={href} target="_blank" rel="noreferrer">
+                {talk.data.pdf ? "View PDF" : "View notes"} <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </main>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 68vh;
+    padding-top: clamp(5rem, 10vw, 8rem);
+    padding-bottom: clamp(6rem, 12vw, 10rem);
+  }
+
+  .page-heading {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: end;
+    padding-bottom: clamp(3rem, 7vw, 5.5rem);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 8vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+  }
+
+  .page-heading > p {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+
+  .talk-list {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--color-border);
+    list-style: none;
+  }
+
+  .talk-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    padding: clamp(2.25rem, 5vw, 3.5rem) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.7rem;
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 500;
+    letter-spacing: -0.028em;
+    line-height: 1.15;
+  }
+
+  .description {
+    max-width: 44rem;
+    margin: 0.9rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  .talk-list a {
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-underline-offset: 0.28em;
+  }
+
+  .talk-list a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 680px) {
+    .page-heading,
+    .talk-list li {
+      grid-template-columns: 1fr;
+    }
+
+    .page-heading {
+      gap: 1.25rem;
+    }
+
+    .talk-list li {
+      align-items: start;
+      gap: 1.25rem;
+    }
+  }
+</style>
