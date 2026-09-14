@@ -9,7 +9,9 @@ const navItems = [
 
 <header class="site-header">
   <div class="header-inner shell">
-    <a class="wordmark" href="/" aria-label="Jialong Li, home">Jialong Li</a>
+    <a class="wordmark" href="/" aria-label="Jialong (Mark) Li, home">
+      Jialong <span>(Mark)</span> Li
+    </a>
 
     <nav aria-label="Primary navigation">
       <ul>
@@ -50,6 +52,10 @@ const navItems = [
     text-decoration: none;
   }
 
+  .wordmark span {
+    color: var(--color-muted);
+  }
+
   ul {
     display: flex;
     margin: 0;
@@ -85,8 +91,11 @@ const navItems = [
 
   @media (max-width: 520px) {
     .header-inner {
-      min-height: 4.25rem;
-      gap: 1rem;
+      min-height: 0;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding-block: 1rem;
     }
 
     .wordmark {

@@ -1,5 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const affiliations = [
+  {
+    name: "Stanford University",
+    detail: "Predoctoral Research Fellow · 2025–present",
+    viewBox: "64 34 151 150",
+  },
+  {
+    name: "Northwestern University",
+    detail: "M.S. Machine Learning & Data Science · 2024",
+    viewBox: "64 214 150 149",
+  },
+  {
+    name: "University of Illinois Urbana–Champaign",
+    detail: "B.S. Statistics · Computer Science minor · 2023",
+    viewBox: "64 394 150 150",
+  },
+];
 ---
 
 <BaseLayout>
@@ -11,16 +29,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
 
       <div class="hero-details">
-        <p class="introduction">
-          I study how algorithmic systems, data, and AI shape consumer behavior and digital
-          markets. My work combines field experiments, econometric models, and machine learning.
-        </p>
+        <div>
+          <p class="introduction">
+            Hi, I’m Jialong (Mark) Li, a predoctoral research fellow at Stanford Graduate School of
+            Business. My research sits at the intersection of <strong>quantitative marketing</strong>
+            and <strong>operations, information &amp; technology</strong>.
+          </p>
+        </div>
 
-        <div class="contact" aria-label="Contact links">
-          <a href="mailto:markli@stanford.edu">Email</a>
-          <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="background-copy">
+          <p>
+            I study how algorithms, data, and AI shape consumer behavior and digital markets,
+            combining field experiments, econometric models, and machine learning.
+          </p>
+          <p>
+            Before Stanford, I studied statistics and computer science at UIUC, then earned an M.S.
+            in Machine Learning and Data Science from Northwestern University.
+          </p>
         </div>
       </div>
+
+      <ol class="affiliations" aria-label="Affiliations and education">
+        {
+          affiliations.map((affiliation) => (
+            <li>
+              <svg
+                class="institution-logo"
+                viewBox={affiliation.viewBox}
+                role="img"
+                aria-label={`${affiliation.name} logo`}
+              >
+                <image href="/images/education-logos.png" width="264" height="644" />
+              </svg>
+              <div>
+                <h2>{affiliation.name}</h2>
+                <p>{affiliation.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
     </section>
 
     <section class="directory shell" aria-label="Explore the website">
@@ -45,13 +93,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <span class="action">View talks <span aria-hidden="true">→</span></span>
       </a>
     </section>
+
+    <section class="say-hello shell" aria-labelledby="hello-title">
+      <div class="hello-heading">
+        <span class="index" aria-hidden="true">04</span>
+        <h2 id="hello-title">Say hello</h2>
+      </div>
+      <div class="hello-copy">
+        <p>
+          Questions, collaborations, or just want to say hello? Write to
+          <a href="mailto:markli@stanford.edu">markli@stanford.edu</a> or connect with me on
+          <a
+            href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
+            target="_blank"
+            rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
+          >.
+        </p>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
   .hero {
     padding-top: clamp(4.25rem, 7vw, 6.5rem);
-    padding-bottom: clamp(4.75rem, 8vw, 7rem);
+    padding-bottom: clamp(3.75rem, 7vw, 5.75rem);
   }
 
   .hero-heading {
@@ -80,9 +146,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   .hero-details {
     display: grid;
-    grid-template-columns: minmax(0, 1.8fr) minmax(10rem, 0.65fr);
-    gap: clamp(2.5rem, 7vw, 6rem);
-    align-items: end;
+    grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.8fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: start;
     margin-top: clamp(3rem, 5vw, 4.5rem);
   }
 
@@ -96,28 +162,69 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     line-height: 1.55;
   }
 
-  .contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
-    padding-bottom: 0.35rem;
-  }
-
-  .contact a {
-    color: var(--color-text);
-    font-size: 0.95rem;
+  .introduction strong {
     font-weight: 600;
-    text-underline-offset: 0.3em;
   }
 
-  .contact a:hover {
-    color: var(--color-link);
+  .background-copy {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .background-copy p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .affiliations {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: clamp(3.25rem, 6vw, 5rem) 0 0;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid var(--color-border);
+    list-style: none;
+  }
+
+  .affiliations li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding-right: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .affiliations li + li {
+    padding-left: clamp(1rem, 3vw, 2.5rem);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .institution-logo {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .affiliations h2 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .affiliations p {
+    margin: 0.28rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.69rem;
+    line-height: 1.45;
   }
 
   .directory {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-bottom: clamp(5rem, 9vw, 7.5rem);
+    margin-bottom: 0;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
   }
@@ -171,6 +278,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     color: var(--color-link);
   }
 
+  .say-hello {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    padding-top: clamp(3.5rem, 7vw, 5.5rem);
+    padding-bottom: clamp(4.5rem, 8vw, 6.5rem);
+  }
+
+  .hello-heading h2 {
+    margin: 1rem 0 0;
+    font-family: var(--font-display);
+    font-size: var(--text-card-title);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .hello-copy p {
+    max-width: 34rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .hello-copy a {
+    color: var(--color-link);
+    font-weight: 600;
+    text-underline-offset: 0.25em;
+  }
+
   @media (max-width: 720px) {
     .hero-details {
       grid-template-columns: 1fr;
@@ -178,6 +314,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     .hero-details {
       gap: 2rem;
+    }
+
+    .affiliations {
+      grid-template-columns: 1fr;
+      padding-top: 0;
+    }
+
+    .affiliations li {
+      padding: 1.15rem 0;
+    }
+
+    .affiliations li + li {
+      padding-left: 0;
+      border-top: 1px solid var(--color-border);
+      border-left: 0;
     }
 
     .directory {
@@ -192,6 +343,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     .directory > a + a {
       border-top: 1px solid var(--color-border);
       border-left: 0;
+    }
+
+    .say-hello {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>
