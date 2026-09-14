@@ -19,5 +19,5 @@
 - Preserve complete project titles and substantive summaries, including key design details, results, and Mark's contributions when established.
 - Keep Stanford, Northwestern, and UIUC together in the Education section; do not add a separate Research appointment section.
 
-- Label all non-paper entries Research project, including completed projects. Store verified project date ranges in `period`; do not substitute appointment dates for project dates.
+- Label all non-paper entries Research project, including completed projects. Store date ranges in `period` and show them consistently for every Research project. Per Mark’s instruction to use his CV, the three Stanford projects use Aug 2025 – Present and the UIUC project uses Aug 2022 – Jan 2023.
 - Use the same blue status indicator for every Research project, including completed projects; do not vary their styling by tone.
