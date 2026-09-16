@@ -6,9 +6,10 @@ tone: accepted
 summary: >-
   A large-scale field experiment measuring how people value online privacy and how information changes privacy choices. I built the hierarchical Bayesian conjoint model in willingness-to-pay space, led selection and record-loss analyses, and developed the experiment's data infrastructure.
 status: "Accepted · ACM EC 2026"
-collaborators:
+authors:
   - Guy Aridor
   - Samuel Goldberg
+  - Jialong (Mark) Li
 tags:
   - Online Privacy
   - Field experiment

@@ -7,6 +7,7 @@
 - Use only colors declared in `src/styles/tokens.css`. Use Mark's `plot_rules.R` palette, with the user-requested darker secondary text color `#48484a`; do not summarize it as a black/white/grey/blue palette.
 - Preserve official school colors inside school-logo image assets, but do not reuse those brand colors in the interface.
 - Keep papers (`kind: paper`) separate from research-assistant work (`kind: project`). Never imply that every research project is a publication.
+- For papers, list every author in `authors` in the paper's exact order, including `Jialong (Mark) Li`, which is rendered in semibold. Research projects keep `collaborators` and the "With" label.
 - Keep the homepage as a concise introduction and directory. Put the full research list only on `/research/`.
 - Use one typeface everywhere: Inter Variable (`--font-sans`, self-hosted with optical sizing). Do not add serif or other display fonts. A monospace stack is allowed only for code.
 - Keep typography to the four size tokens in `src/styles/tokens.css`: `--text-display` (name, page titles), `--text-title` (section and entry titles, wordmark), `--text-body` (paragraphs, navigation, actions), and `--text-small` (metadata, labels, captions, footer). Do not introduce one-off font sizes.

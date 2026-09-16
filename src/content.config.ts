@@ -12,6 +12,7 @@ const projects = defineCollection({
     tone: z.enum(["accepted", "review", "ongoing", "archive"]),
     status: z.string().optional(),
     period: z.string().optional(),
+    authors: z.array(z.string()).default([]),
     collaborators: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
