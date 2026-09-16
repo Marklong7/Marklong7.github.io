@@ -4,7 +4,7 @@ import PageHeading from "../../components/PageHeading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
-  (a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0),
+  (a, b) => a.data.order - b.data.order || (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0),
 );
 
 const formatDate = (date?: Date) =>
@@ -30,17 +30,22 @@ const formatDate = (date?: Date) =>
           const date = formatDate(talk.data.date);
 
           return (
-            <li>
+            <li class:list={{ "without-cover": !talk.data.cover }}>
+              {talk.data.cover && (
+                <a class="talk-cover" href={href} target="_blank" rel="noreferrer" aria-label={`View slides: ${talk.data.title}`}>
+                  <img src={talk.data.cover} alt={`Cover of ${talk.data.title}`} loading="lazy" decoding="async" />
+                </a>
+              )}
               <div class="talk-copy">
                 <p class="eyebrow">
                   {[talk.data.event, date].filter(Boolean).join(" · ")}
                 </p>
-                <h2>{talk.data.title}</h2>
+                <h2><a href={href} target="_blank" rel="noreferrer">{talk.data.title}</a></h2>
                 <p class="description">{talk.data.description}</p>
+                <a class="talk-action" href={href} target="_blank" rel="noreferrer">
+                  {talk.data.pdf ? "View slides" : "View notes"} <span aria-hidden="true">↗</span>
+                </a>
               </div>
-              <a href={href} target="_blank" rel="noreferrer">
-                {talk.data.pdf ? "View PDF" : "View notes"} <span aria-hidden="true">↗</span>
-              </a>
             </li>
           );
         })
@@ -65,11 +70,35 @@ const formatDate = (date?: Date) =>
 
   .talk-list li {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: end;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
     padding: clamp(2rem, 4vw, 2.75rem) 0;
     border-top: 1px solid var(--color-border);
+  }
+
+  .talk-list li.without-cover {
+    grid-template-columns: 1fr;
+  }
+
+  .talk-cover {
+    display: block;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .talk-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .talk-cover:hover {
+    border-color: var(--color-accent);
+  }
+
+  .talk-copy {
+    min-width: 0;
   }
 
   .eyebrow {
@@ -80,13 +109,13 @@ const formatDate = (date?: Date) =>
     color: var(--color-text);
     font-size: var(--text-body);
     font-weight: 600;
-    letter-spacing: 0.075em;
-    text-transform: uppercase;
+    line-height: 1.45;
   }
 
   .eyebrow::before {
     width: 0.5rem;
     height: 0.5rem;
+    flex-shrink: 0;
     flex: 0 0 auto;
     border-radius: 999px;
     background: var(--color-accent);
@@ -109,7 +138,14 @@ const formatDate = (date?: Date) =>
     font-size: var(--text-body);
   }
 
-  .talk-list a {
+  h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .talk-action {
+    display: inline-block;
+    margin-top: 1rem;
     color: var(--color-text);
     font-size: var(--text-body);
     font-weight: 600;
@@ -119,6 +155,11 @@ const formatDate = (date?: Date) =>
 
   .talk-list a:hover {
     color: var(--color-link);
+  }
+
+  .talk-list a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
   }
 
   @media (max-width: 680px) {

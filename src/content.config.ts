@@ -38,6 +38,8 @@ const slides = defineCollection({
   schema: z
     .object({
       title: z.string(),
+      order: z.number().default(100),
+      cover: z.string().optional(),
       date: z.coerce.date().optional(),
       event: z.string().optional(),
       description: z.string(),

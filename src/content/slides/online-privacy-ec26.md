@@ -1,4 +1,6 @@
 ---
+order: 1
+cover: "/images/talks/privacy-experiments-ec26.png"
 title: "What is Online Privacy Worth? Evidence from an Information Provision Experiment"
 date: 2026-07-08
 event: "The 27th ACM Conference on Economics and Computation (EC'26)"

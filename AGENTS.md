@@ -21,3 +21,6 @@
 
 - Label all non-paper entries Research project, including completed projects. Store date ranges in `period` and show them consistently for every Research project. Per Mark’s instruction to use his CV, the three Stanford projects use Aug 2025 – Present and the UIUC project uses Aug 2022 – Jan 2023.
 - Use the same blue status indicator for every Research project, including completed projects; do not vary their styling by tone.
+
+- Order the Talk page by slide metadata `order`: EC, GSB predoc seminar, then Northwestern CS reading group. Preserve the exact event names "Stanford Graduate School of Business Predoc Seminar" and "Northwestern MAGICS Lab PhD Reading Group".
+- Show actual first-page PDF covers when available, linked to the slides. Keep event, topic, and content summary distinct; do not invent covers for notes without a supplied deck.
