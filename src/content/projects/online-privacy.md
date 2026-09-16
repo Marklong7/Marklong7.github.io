@@ -1,5 +1,5 @@
 ---
-title: "What Is Online Privacy Worth? Evidence from an Information Provision Experiment"
+title: "What is Online Privacy Worth? Evidence from an Information Provision Experiment"
 order: 1
 kind: paper
 tone: accepted
@@ -11,7 +11,7 @@ authors:
   - Samuel Goldberg
   - Jialong (Mark) Li
 tags:
-  - Online Privacy
+  - Online privacy
   - Field experiment
   - Hierarchical Bayesian modeling
   - Econometrics

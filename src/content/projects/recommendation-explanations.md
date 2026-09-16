@@ -1,5 +1,5 @@
 ---
-title: "Can Explanations Improve Recommendations?"
+title: "Can Explanations Improve Recommendations? Evidence from Prediction-Informed Explanations"
 order: 3
 kind: project
 tone: ongoing
