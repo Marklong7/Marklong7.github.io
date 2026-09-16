@@ -4,13 +4,9 @@ import PageHeading from "../../components/PageHeading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order || (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0),
+  (a, b) => a.data.order - b.data.order,
 );
 
-const formatDate = (date?: Date) =>
-  date
-    ? new Intl.DateTimeFormat("en", { year: "numeric", month: "short" }).format(date)
-    : undefined;
 ---
 
 <BaseLayout
@@ -27,14 +23,12 @@ const formatDate = (date?: Date) =>
       {
         talks.map((talk) => {
           const href = talk.data.pdf ?? talk.data.url;
-          const date = formatDate(talk.data.date);
 
           return (
             <li class:list={{ "without-cover": !talk.data.cover }}>
               <div class="talk-copy">
                 <div class="talk-meta">
                   {talk.data.event && <p class="event">{talk.data.event}</p>}
-                  {date && <time datetime={talk.data.date?.toISOString().slice(0, 10)}>{date}</time>}
                 </div>
                 <h2><a href={href} target="_blank" rel="noreferrer">{talk.data.title}</a></h2>
                 <p class="description">{talk.data.description}</p>
@@ -95,10 +89,6 @@ const formatDate = (date?: Date) =>
 
   .event {
     margin: 0;
-  }
-
-  time {
-    white-space: nowrap;
   }
 
   h2 {

@@ -25,4 +25,4 @@
 - Order the Talk page by slide metadata `order`: EC, GSB predoc seminar, then Northwestern CS reading group. Preserve the exact event names "Stanford Graduate School of Business Predoc Seminar" and "Northwestern MAGICS Lab PhD Reading Group".
 - Show actual first-page PDF covers when available, linked to the slides. Keep event, topic, and content summary distinct; do not invent covers for notes without a supplied deck.
 
-- On the Talk page, place text on the left and PDF covers on the right on desktop, with text before the cover on mobile. Use Inter for talk titles and metadata; keep event/date visually secondary to the title, without status dots.
+- On the Talk page, place text on the left and PDF covers on the right on desktop, with text before the cover on mobile. Use Inter for talk titles and metadata; keep event names visually secondary to the title, without status dots. Do not display dates on the Talk page; use the same event → topic → summary → link structure for every entry.
