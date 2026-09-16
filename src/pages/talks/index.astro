@@ -33,8 +33,39 @@ const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
                 <h2><a href={href} target="_blank" rel="noreferrer">{talk.data.title}</a></h2>
                 <p class="description">{talk.data.description}</p>
                 <a class="talk-action" href={href} target="_blank" rel="noreferrer">
-                  {talk.data.pdf ? "View slides" : "View notes"} <span aria-hidden="true">↗</span>
+                  {talk.data.linkLabel ?? (talk.data.pdf ? "View slides" : "View notes")} <span aria-hidden="true">↗</span>
                 </a>
+                {(talk.data.topics.length > 0 || talk.data.selectedTalks.length > 0 || talk.data.resources.length > 0) && (
+                  <details class="talk-details">
+                    <summary>Topics and selected talks</summary>
+                    {talk.data.topics.length > 0 && (
+                      <section class="detail-section" aria-label="Topics">
+                        <h3>Topics</h3>
+                        <p>{talk.data.topics.join(" · ")}</p>
+                      </section>
+                    )}
+                    {talk.data.selectedTalks.length > 0 && (
+                      <section class="detail-section" aria-label="Selected talks">
+                        <h3>Selected talks</h3>
+                        <ul class="resource-list">
+                          {talk.data.selectedTalks.map((link) => (
+                            <li><a href={link.url} target="_blank" rel="noreferrer">{link.label} <span aria-hidden="true">↗</span></a></li>
+                          ))}
+                        </ul>
+                      </section>
+                    )}
+                    {talk.data.resources.length > 0 && (
+                      <section class="detail-section" aria-label="Getting started">
+                        <h3>Getting started</h3>
+                        <ul class="resource-list">
+                          {talk.data.resources.map((link) => (
+                            <li><a href={link.url} target="_blank" rel="noreferrer">{link.label} <span aria-hidden="true">↗</span></a></li>
+                          ))}
+                        </ul>
+                      </section>
+                    )}
+                  </details>
+                )}
               </div>
               {talk.data.cover && (
                 <a class="talk-cover" href={href} target="_blank" rel="noreferrer" aria-label={`View slides: ${talk.data.title}`}>
@@ -63,7 +94,7 @@ const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
     border-bottom: 1px solid var(--color-border);
   }
 
-  .talk-list li {
+  .talk-list > li {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     gap: clamp(2rem, 4vw, 3.5rem);
@@ -152,8 +183,61 @@ const talks = (await getCollection("slides", ({ data }) => !data.draft)).sort(
     outline-offset: 4px;
   }
 
+  .talk-details {
+    margin-top: 0.85rem;
+    font-size: var(--text-body);
+    line-height: 1.6;
+  }
+
+  .talk-details summary {
+    width: fit-content;
+    color: var(--color-link);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .talk-details summary:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 4px;
+  }
+
+  .detail-section {
+    margin-top: 1rem;
+  }
+
+  .detail-section h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 600;
+  }
+
+  .detail-section p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .resource-list {
+    margin: 0;
+    padding-left: 1.15rem;
+  }
+
+  .resource-list li + li {
+    margin-top: 0.4rem;
+  }
+
+  .resource-list a {
+    color: var(--color-link);
+    text-decoration: none;
+    text-underline-offset: 0.25em;
+  }
+
+  .resource-list a:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 720px) {
-    .talk-list li {
+    .talk-list > li {
       grid-template-columns: minmax(0, 1fr);
       gap: 1.5rem;
     }
