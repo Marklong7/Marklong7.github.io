@@ -15,6 +15,8 @@ npm run dev
 - `src/content/blog/`: Markdown and MDX posts
 - `src/content/slides/`: slide metadata
 - `public/slides/`: compiled PDF slides
+- `src/assets/talks/`: slide cover images (optimized to WebP at build time)
+- `src/styles/tokens.css`: the design system — one typeface, four font sizes, spacing and width scales
 
 The homepage is a compact introduction and directory. Research lives on its own `/research/`
 page, where publications are separated from research-assistant projects.
@@ -32,4 +34,5 @@ Pushing to `astro-redesign` runs a production build without changing the live si
 
 1. Compile the LaTeX/Beamer source locally.
 2. Put the PDF in `public/slides/`.
-3. Copy `src/content/slides/_template.md`, update its metadata, and set `draft: false`.
+3. Optionally export the first page as a PNG into `src/assets/talks/`.
+4. Copy `src/content/slides/_template.md`, update its metadata (set `cover: "../../assets/talks/<name>.png"` if you added one), and set `draft: false`.

@@ -5,52 +5,39 @@ const year = new Date().getFullYear();
 <footer>
   <div class="footer-inner shell">
     <p>© {year} Jialong (Mark) Li</p>
-    <div class="footer-links">
-      <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer">GitHub</a>
-    </div>
+    <a href="https://github.com/Marklong7" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
   </div>
 </footer>
 
 <style>
   footer {
-    border-top: 1px solid var(--color-border);
+    border-top: var(--border);
   }
 
   .footer-inner {
     display: flex;
-    min-height: 6.5rem;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: var(--space-3) var(--space-5);
+    flex-wrap: wrap;
+    padding-block: var(--space-6);
+    color: var(--color-muted);
+    font-size: var(--text-small);
+    line-height: var(--leading-snug);
   }
 
   p {
     margin: 0;
-    color: var(--color-muted);
-    font-size: var(--text-body);
-  }
-
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
   }
 
   a {
     color: var(--color-muted);
-    font-size: var(--text-body);
-    text-underline-offset: 0.25em;
+    text-decoration: none;
   }
 
   a:hover {
     color: var(--color-link);
-  }
-
-  @media (max-width: 620px) {
-    .footer-inner {
-      align-items: flex-start;
-      flex-direction: column;
-      justify-content: center;
-    }
+    text-decoration: underline;
+    text-underline-offset: var(--underline-offset);
   }
 </style>

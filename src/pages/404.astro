@@ -1,0 +1,47 @@
+---
+import PageHeading from "../components/PageHeading.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "Research", href: "/research/" },
+  { label: "Talk", href: "/talks/" },
+  { label: "Blog", href: "/blog/" },
+];
+---
+
+<BaseLayout
+  title="Page not found · Jialong (Mark) Li"
+  description="The page you were looking for does not exist."
+>
+  <main id="main-content" class="page shell">
+    <PageHeading
+      title="Page not found"
+      description="This page may have moved or no longer exists. Try one of these instead."
+    />
+
+    <ul class="links">
+      {
+        links.map((link) => (
+          <li>
+            <a class="action-link" href={link.href}>
+              {link.label} <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    margin: 0;
+    padding: var(--space-6) 0 0;
+    border-top: var(--border);
+    list-style: none;
+  }
+</style>

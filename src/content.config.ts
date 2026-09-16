@@ -35,25 +35,26 @@ const blog = defineCollection({
 
 const slides = defineCollection({
   loader: glob({ base: "./src/content/slides", pattern: "**/*.{md,mdx}" }),
-  schema: z
-    .object({
-      title: z.string(),
-      order: z.number().default(100),
-      cover: z.string().optional(),
-      linkLabel: z.string().optional(),
-      topics: z.array(z.string()).default([]),
-      selectedTalks: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
-      resources: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
-      date: z.coerce.date().optional(),
-      event: z.string().optional(),
-      description: z.string(),
-      pdf: z.string().optional(),
-      url: z.string().optional(),
-      draft: z.boolean().default(false),
-    })
-    .refine((talk) => talk.pdf || talk.url, {
-      message: "Each talk needs either a PDF path or an external URL.",
-    }),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: z.string(),
+        order: z.number().default(100),
+        cover: image().optional(),
+        linkLabel: z.string().optional(),
+        topics: z.array(z.string()).default([]),
+        selectedTalks: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
+        resources: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
+        date: z.coerce.date().optional(),
+        event: z.string().optional(),
+        description: z.string(),
+        pdf: z.string().optional(),
+        url: z.string().optional(),
+        draft: z.boolean().default(false),
+      })
+      .refine((talk) => talk.pdf || talk.url, {
+        message: "Each talk needs either a PDF path or an external URL.",
+      }),
 });
 
 export const collections = { projects, blog, slides };
