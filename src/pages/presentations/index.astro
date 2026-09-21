@@ -12,7 +12,7 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
 
 <BaseLayout
   title="Presentations · Jialong (Mark) Li"
-  description="Talks and presentation slides by Jialong (Mark) Li."
+  description="Presentations and slides by Jialong (Mark) Li."
 >
   <main id="main-content" class="page shell">
     <PageHeading
@@ -47,7 +47,7 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
 
                 {hasDetails && (
                   <details class="talk-details">
-                    <summary class="action-link">Topics and selected talks</summary>
+                    <summary class="action-link">Topics and selected presentations</summary>
                     {talk.data.topics.length > 0 && (
                       <section class="detail-section" aria-label="Topics">
                         <h3>Topics</h3>
@@ -55,8 +55,8 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
                       </section>
                     )}
                     {talk.data.selectedTalks.length > 0 && (
-                      <section class="detail-section" aria-label="Selected talks">
-                        <h3>Selected talks</h3>
+                      <section class="detail-section" aria-label="Selected presentations">
+                        <h3>Selected presentations</h3>
                         <ul class="resource-list">
                           {talk.data.selectedTalks.map((link) => (
                             <li>

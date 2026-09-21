@@ -1,6 +1,6 @@
 # Website maintenance rules
 
-- Keep the global navigation limited to Home, Research, Talk, and Blog.
+- Keep the global navigation limited to Home, Research, Presentations, and Blog.
 - Always display the full name as `Jialong (Mark) Li`; do not shorten the site wordmark to `Jialong Li` or `Mark`.
 - Do not publish or store Mark's CV in this public repository.
 - Store research, blog, and slide metadata in the matching `src/content` collection rather than hard-coding entries into page components.
@@ -27,9 +27,9 @@
 - Label all non-paper entries Research project, including completed projects. Store date ranges in `period` and show them consistently for every Research project. Per Mark’s instruction to use his CV, the three Stanford projects use Aug 2025 – Present and the UIUC project uses Aug 2022 – Jan 2023.
 - Use the same blue status indicator for every Research project, including completed projects; do not vary their styling by tone.
 
-- Order the Talk page by slide metadata `order`: EC, GSB predoc seminar, then Northwestern CS reading group. Preserve the exact event names "Stanford Graduate School of Business Predoc Seminar" and "Northwestern MAGICS Lab PhD Reading Group".
+- Order the Presentations page by slide metadata `order`: EC, GSB predoc seminar, then Northwestern CS reading group. Preserve the exact event names "Stanford Graduate School of Business Predoc Seminar" and "Northwestern MAGICS Lab PhD Reading Group".
 - Show actual first-page PDF covers when available, linked to the slides. Store covers in `src/assets/talks/` and reference them from slide frontmatter with a relative path so Astro serves optimized WebP images. Keep event, topic, and content summary distinct; do not invent covers for notes without a supplied deck.
 
-- On the Talk page, place text on the left and PDF covers on the right on desktop, with text before the cover on mobile. Use Inter for talk titles and metadata; keep event names visually secondary to the title, without status dots. Do not display dates on the Talk page; use the same event → topic → summary → link structure for every entry.
+- On the Presentations page, place text on the left and PDF covers on the right on desktop, with text before the cover on mobile. Use Inter for presentation titles and metadata; keep event names visually secondary to the title, without status dots. Do not display dates on the Presentations page; use the same event → topic → summary → link structure for every entry.
 
 - Keep the shared social preview image at `public/og-image.png` (1200×630, site palette and Inter only), and keep the Person JSON-LD on the homepage in sync with the introduction and education details.

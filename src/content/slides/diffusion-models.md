@@ -2,7 +2,7 @@
 order: 3
 title: "Generative Models"
 event: "Northwestern MAGICS Lab PhD Reading Group"
-description: "Presented 10+ talks covering 40+ papers on generative models in Professor Han Liu’s MAGICS Lab at Northwestern University."
+description: "Gave 10+ presentations covering 40+ papers on generative models in Professor Han Liu’s MAGICS Lab at Northwestern University."
 pdf: "/slides/ddim.pdf"
 cover: "../../assets/talks/ddim.png"
 linkLabel: "View DDIM slides"

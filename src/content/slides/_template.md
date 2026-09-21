@@ -1,9 +1,9 @@
 ---
-title: "Talk title"
+title: "Presentation title"
 date: 2026-09-14
 event: "Seminar or conference"
-description: "A short description of the talk."
-pdf: "/slides/talk-title.pdf"
+description: "A short description of the presentation."
+pdf: "/slides/presentation-title.pdf"
 draft: true
 ---
 

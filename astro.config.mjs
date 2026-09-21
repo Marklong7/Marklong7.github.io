@@ -7,6 +7,7 @@ import remarkMath from "remark-math";
 
 export default defineConfig({
   site: "https://marklong7.github.io",
+  redirects: { "/talks/": "/presentations/" },
   integrations: [mdx(), sitemap()],
   markdown: {
     processor: unified({
