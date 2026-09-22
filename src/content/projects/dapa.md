@@ -6,7 +6,7 @@ tone: accepted
 impact: >-
   Uses surgical memory editing to improve LLM safety without sacrificing model capabilities.
 summary: >-
-  I co-developed DAPA, combining knowledge distillation with MLP gate editing to improve defense success rates by 14.41% on average across 17 LLMs (2B–70B). I built an end-to-end LLM pipeline for QLoRA fine-tuning and multi-GPU inference using PyTorch, Hugging Face, and DeepSpeed.
+  Method co-development · QLoRA LLM fine-tuning · Multi-GPU inference
 status: "Accepted · COLM 2026"
 authors:
   - Haozheng Luo
