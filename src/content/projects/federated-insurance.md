@@ -6,7 +6,7 @@ tone: archive
 impact: >-
   Supports collaboration across insurers through federated learning without sharing raw customer data.
 summary: >-
-  A project on learning from insurance claims without pooling the underlying data. I implemented horizontal and vertical federated learning with OpenFL, including FedSGD and FedAvg, and presented progress to faculty and the project funder.
+  I built horizontal and vertical federated learning models on insurance claims using FedSGD, FedAvg, and OpenFL, and presented progress in weekly talks.
 status: "Research project"
 period: "Aug 2022 – Jan 2023"
 collaborators:
