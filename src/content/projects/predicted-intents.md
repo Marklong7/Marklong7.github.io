@@ -3,6 +3,8 @@ title: "Beyond Black-Box: Structuring Recommender Systems Using Predicted Intent
 order: 2
 kind: project
 tone: ongoing
+impact: >-
+  Makes user intent explicit in recommendation models to improve interpretability, accelerate convergence, and deliver more accurate predictions with low latency.
 summary: >-
   A study of whether predicted listening intent can improve recommender systems. Using 5.9 million impressions from 208,000 NetEase Cloud Music users, I compare structural discrete choice models with DNN, VAE, and heterogeneous HMM benchmarks and study when intent adds predictive value.
 status: "Research project"
