@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { status, period, title, summary, links, authors, collaborators, tags } = project.data;
+const { status, period, title, summary, impact, links, authors, collaborators, tags } = project.data;
 const selfName = "Jialong (Mark) Li";
 ---
 
@@ -21,6 +21,7 @@ const selfName = "Jialong (Mark) Li";
       )
     }
     <h3>{title}</h3>
+    {impact && <p class="summary"><strong>Impact:</strong> {impact}</p>}
     <p class="summary">{summary}</p>
 
     {
