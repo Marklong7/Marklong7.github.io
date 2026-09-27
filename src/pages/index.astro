@@ -181,14 +181,14 @@ const personSchema = {
 
   .hero-layout {
     display: grid;
-    grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
-    gap: var(--space-5);
+    grid-template-columns: minmax(0, 28rem) minmax(0, 1fr);
+    gap: var(--space-6);
     align-items: start;
   }
 
   .headshot {
-    width: min(13rem, 100%);
-    margin-top: var(--space-3);
+    width: 100%;
+    margin-top: var(--space-4);
     margin-bottom: 0;
     border-radius: var(--radius);
     aspect-ratio: 320 / 342;
@@ -335,7 +335,7 @@ const personSchema = {
     }
 
     .headshot {
-      width: 11rem;
+      width: min(18rem, 100%);
     }
   }
 
