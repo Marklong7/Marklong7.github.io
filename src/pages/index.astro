@@ -51,7 +51,7 @@ const personSchema = {
   name: "Jialong (Mark) Li",
   alternateName: ["Jialong Li", "Mark Li"],
   url: new URL("/", site).href,
-  image: new URL("/og-image.png", site).href,
+  image: new URL("/images/mark-headshot.svg", site).href,
   email: "mailto:markli@stanford.edu",
   jobTitle: "Predoctoral Research Fellow",
   worksFor: {
@@ -84,6 +84,13 @@ const personSchema = {
     <section class="hero shell" aria-labelledby="page-title">
       <div class="hero-layout">
         <div class="hero-heading">
+          <img
+            class="headshot"
+            src="/images/mark-headshot.svg"
+            alt="Jialong (Mark) Li"
+            width="320"
+            height="342"
+          />
           <h1 id="page-title">Jialong (Mark) Li</h1>
           <p class="role">
             <span>Predoctoral Research Fellow</span>
@@ -177,6 +184,14 @@ const personSchema = {
     grid-template-columns: minmax(20rem, 0.9fr) minmax(0, 1.1fr);
     gap: var(--space-8);
     align-items: start;
+  }
+
+  .headshot {
+    width: min(13rem, 100%);
+    margin-bottom: var(--space-5);
+    border-radius: var(--radius);
+    aspect-ratio: 320 / 342;
+    object-fit: cover;
   }
 
   h1 {
@@ -316,6 +331,10 @@ const personSchema = {
     .hero-layout {
       grid-template-columns: 1fr;
       gap: var(--space-6);
+    }
+
+    .headshot {
+      width: 11rem;
     }
   }
 
