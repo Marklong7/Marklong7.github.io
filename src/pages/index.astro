@@ -32,10 +32,10 @@ const directory = [
     action: "View research",
   },
   {
-    title: "Presentations",
-    href: "/presentations/",
-    blurb: "Research presentations and reading-group slides.",
-    action: "View presentations",
+    title: "Talks",
+    href: "/talks/",
+    blurb: "Research talks and reading-group slides.",
+    action: "View talks",
   },
   {
     title: "Blog",
@@ -84,6 +84,11 @@ const personSchema = {
     <section class="hero shell" aria-labelledby="page-title">
       <div class="hero-layout">
         <div class="hero-heading">
+          <h1 id="page-title">Jialong (Mark) Li</h1>
+          <p class="role">
+            <span>Predoctoral Research Fellow</span>
+            <span>Stanford Graduate School of Business</span>
+          </p>
           <img
             class="headshot"
             src="/images/mark-headshot.svg"
@@ -91,11 +96,6 @@ const personSchema = {
             width="320"
             height="342"
           />
-          <h1 id="page-title">Jialong (Mark) Li</h1>
-          <p class="role">
-            <span>Predoctoral Research Fellow</span>
-            <span>Stanford Graduate School of Business</span>
-          </p>
         </div>
 
         <div class="hero-copy">
@@ -188,7 +188,8 @@ const personSchema = {
 
   .headshot {
     width: min(13rem, 100%);
-    margin-bottom: var(--space-5);
+    margin-top: var(--space-5);
+    margin-bottom: 0;
     border-radius: var(--radius);
     aspect-ratio: 320 / 342;
     object-fit: cover;
