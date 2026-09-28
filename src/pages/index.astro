@@ -89,15 +89,14 @@ const personSchema = {
             <span>Predoctoral Research Fellow</span>
             <span>Stanford Graduate School of Business</span>
           </p>
+          <img
+            class="headshot"
+            src="/images/mark-headshot.svg"
+            alt="Jialong (Mark) Li"
+            width="320"
+            height="342"
+          />
         </div>
-
-        <img
-          class="headshot"
-          src="/images/mark-headshot.svg"
-          alt="Jialong (Mark) Li"
-          width="320"
-          height="342"
-        />
 
         <div class="hero-copy">
           <p>
@@ -183,36 +182,29 @@ const personSchema = {
   .hero-layout {
     display: grid;
     grid-template-columns: minmax(20rem, 24rem) minmax(0, 1fr);
-    column-gap: var(--space-6);
-    row-gap: var(--space-5);
+    gap: var(--space-6);
     align-items: start;
   }
 
-  .hero-heading {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
   .headshot {
-    grid-column: 1;
-    grid-row: 2;
     width: 14rem;
-    margin: 0;
+    margin-top: var(--space-3);
     border-radius: var(--radius);
     aspect-ratio: 320 / 342;
     object-fit: cover;
   }
 
   h1 {
-    font-size: var(--text-display);
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-tight);
+    font-size: clamp(2.05rem, 1.9rem + 0.55vw, 2.35rem);
+    letter-spacing: -0.018em;
+    line-height: 1.08;
   }
 
   .role {
-    margin: var(--space-4) 0 0;
+    margin: var(--space-3) 0 0;
     color: var(--color-muted);
-    line-height: var(--leading-snug);
+    font-size: 0.95rem;
+    line-height: 1.28;
   }
 
   .role span {
@@ -220,14 +212,13 @@ const personSchema = {
   }
 
   .role span:first-child {
-    margin-bottom: var(--space-1);
+    margin-bottom: 0.1rem;
     color: var(--color-text);
+    font-size: 1rem;
     font-weight: var(--weight-semibold);
   }
 
   .hero-copy {
-    grid-column: 2;
-    grid-row: 2;
     max-width: var(--width-reading);
   }
 
@@ -342,13 +333,6 @@ const personSchema = {
     .hero-layout {
       grid-template-columns: 1fr;
       gap: var(--space-5);
-    }
-
-    .hero-heading,
-    .headshot,
-    .hero-copy {
-      grid-column: 1;
-      grid-row: auto;
     }
 
     .headshot {
