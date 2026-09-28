@@ -18,7 +18,7 @@ const affiliations = [
     viewBox: "64 214 150 149",
   },
   {
-    name: "University of Illinois Urbana–Champaign",
+    name: "UIUC",
     detail: "B.S. Statistics · Computer Science minor · 2023",
     viewBox: "64 394 150 150",
   },
@@ -89,14 +89,15 @@ const personSchema = {
             <span>Predoctoral Research Fellow</span>
             <span>Stanford Graduate School of Business</span>
           </p>
-          <img
-            class="headshot"
-            src="/images/mark-headshot.svg"
-            alt="Jialong (Mark) Li"
-            width="320"
-            height="342"
-          />
         </div>
+
+        <img
+          class="headshot"
+          src="/images/mark-headshot.svg"
+          alt="Jialong (Mark) Li"
+          width="320"
+          height="342"
+        />
 
         <div class="hero-copy">
           <p>
@@ -181,15 +182,22 @@ const personSchema = {
 
   .hero-layout {
     display: grid;
-    grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: minmax(20rem, 24rem) minmax(0, 1fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-5);
     align-items: start;
   }
 
+  .hero-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
   .headshot {
+    grid-column: 1;
+    grid-row: 2;
     width: 14rem;
-    margin-top: var(--space-4);
-    margin-bottom: 0;
+    margin: 0;
     border-radius: var(--radius);
     aspect-ratio: 320 / 342;
     object-fit: cover;
@@ -218,6 +226,8 @@ const personSchema = {
   }
 
   .hero-copy {
+    grid-column: 2;
+    grid-row: 2;
     max-width: var(--width-reading);
   }
 
@@ -331,7 +341,14 @@ const personSchema = {
   @media (max-width: 860px) {
     .hero-layout {
       grid-template-columns: 1fr;
-      gap: var(--space-6);
+      gap: var(--space-5);
+    }
+
+    .hero-heading,
+    .headshot,
+    .hero-copy {
+      grid-column: 1;
+      grid-row: auto;
     }
 
     .headshot {
