@@ -44,6 +44,7 @@ const slides = defineCollection({
         order: z.number().default(100),
         cover: image().optional(),
         linkLabel: z.string().optional(),
+        hideLink: z.boolean().default(false),
         topics: z.array(z.string()).default([]),
         selectedTalks: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
         resources: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
