@@ -36,14 +36,20 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
               <div class="talk-copy">
                 {talk.data.event && <p class="meta">{talk.data.event}</p>}
                 <h2>
-                  <a href={href} target="_blank" rel="noreferrer">
-                    {talk.data.title}
-                  </a>
+                  {talk.data.hideLink ? (
+                    talk.data.title
+                  ) : (
+                    <a href={href} target="_blank" rel="noreferrer">
+                      {talk.data.title}
+                    </a>
+                  )}
                 </h2>
                 <p class="description">{talk.data.description}</p>
-                <a class="action-link talk-action" href={href} target="_blank" rel="noreferrer">
-                  {label} <span aria-hidden="true">↗</span>
-                </a>
+                {!talk.data.hideLink && (
+                  <a class="action-link talk-action" href={href} target="_blank" rel="noreferrer">
+                    {label} <span aria-hidden="true">↗</span>
+                  </a>
+                )}
 
                 {hasDetails && (
                   <details class="talk-details">
@@ -86,25 +92,38 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
                 )}
               </div>
 
-              {talk.data.cover && (
-                <a
-                  class="talk-cover"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${label}: ${talk.data.title}`}
-                >
-                  <Image
-                    src={talk.data.cover}
-                    alt={`Cover of ${talk.data.title}`}
-                    widths={[480, 820, 1200]}
-                    sizes="(max-width: 860px) min(32rem, calc(100vw - 2.5rem)), 26rem"
-                    format="webp"
-                    loading={isFirstCover ? "eager" : "lazy"}
-                    fetchpriority={isFirstCover ? "high" : undefined}
-                  />
-                </a>
-              )}
+              {talk.data.cover &&
+                (talk.data.hideLink ? (
+                  <div class="talk-cover">
+                    <Image
+                      src={talk.data.cover}
+                      alt={`Cover of ${talk.data.title}`}
+                      widths={[480, 820, 1200]}
+                      sizes="(max-width: 860px) min(32rem, calc(100vw - 2.5rem)), 26rem"
+                      format="webp"
+                      loading={isFirstCover ? "eager" : "lazy"}
+                      fetchpriority={isFirstCover ? "high" : undefined}
+                    />
+                  </div>
+                ) : (
+                  <a
+                    class="talk-cover"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${label}: ${talk.data.title}`}
+                  >
+                    <Image
+                      src={talk.data.cover}
+                      alt={`Cover of ${talk.data.title}`}
+                      widths={[480, 820, 1200]}
+                      sizes="(max-width: 860px) min(32rem, calc(100vw - 2.5rem)), 26rem"
+                      format="webp"
+                      loading={isFirstCover ? "eager" : "lazy"}
+                      fetchpriority={isFirstCover ? "high" : undefined}
+                    />
+                  </a>
+                ))}
             </li>
           );
         })
@@ -174,7 +193,7 @@ const firstCoverId = talks.find((talk) => talk.data.cover)?.id;
     border-radius: var(--radius);
   }
 
-  .talk-cover:hover {
+  a.talk-cover:hover {
     border-color: var(--color-border-strong);
   }
 
