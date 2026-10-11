@@ -2,6 +2,7 @@
 import { getImage } from "astro:assets";
 import educationLogos from "../assets/education-logos.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { cvUrl } from "../config/site";
 
 const site = Astro.site ?? Astro.url;
 const logoSprite = await getImage({ src: educationLogos, format: "webp", quality: 90 });
@@ -73,11 +74,12 @@ const personSchema = {
   sameAs: [
     "https://github.com/Marklong7",
     "https://www.linkedin.com/in/jialong-mark-li-b3b83a203/",
+    "https://profiles.stanford.edu/jialong-li",
   ],
 };
 ---
 
-<BaseLayout>
+<BaseLayout title="Jialong (Mark) Li | Stanford GSB | Quantitative Marketing">
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
   <main id="main-content">
@@ -115,6 +117,9 @@ const personSchema = {
           </p>
           <ul class="intro-links" aria-label="Contact links">
             <li><a class="action-link" href="mailto:markli@stanford.edu">markli@stanford.edu</a></li>
+            {cvUrl && (
+              <li><a class="action-link" href={cvUrl}>CV</a></li>
+            )}
             <li>
               <a
                 class="action-link"
@@ -126,6 +131,11 @@ const personSchema = {
             <li>
               <a class="action-link" href="https://github.com/Marklong7" target="_blank" rel="noreferrer"
                 >GitHub <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <a class="action-link" href="https://profiles.stanford.edu/jialong-li" target="_blank" rel="noreferrer"
+                >Stanford Profile <span aria-hidden="true">↗</span></a
               >
             </li>
           </ul>
