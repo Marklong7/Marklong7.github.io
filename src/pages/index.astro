@@ -116,7 +116,7 @@ const personSchema = {
             methods and GenAI for recommendation systems.
           </p>
           <ul class="intro-links" aria-label="Contact links">
-            <li><a class="action-link" href="mailto:markli@stanford.edu">markli@stanford.edu</a></li>
+            <li><a class="action-link email-link" href="mailto:markli@stanford.edu">markli@stanford.edu</a></li>
             {cvUrl && (
               <li><a class="action-link" href={cvUrl}>CV</a></li>
             )}
@@ -241,6 +241,11 @@ const personSchema = {
 
   .hero-copy p + p {
     margin-top: var(--space-4);
+  }
+
+  .email-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 
   .intro-links {
