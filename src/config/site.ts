@@ -1,3 +1,9 @@
-// Public CV URL. Leave null until the finalized PDF has been uploaded.
-// Example once ready: export const cvUrl: string | null = "/cv/Jialong_Li_CV.pdf";
-export const cvUrl: string | null = null;
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+
+// Show the CV link only after the PDF is uploaded to the public folder.
+// The expected file is: public/cv/Jialong_Li_CV.pdf
+const cvFile = "cv/Jialong_Li_CV.pdf";
+export const cvUrl: string | null = existsSync(resolve(process.cwd(), "public", cvFile))
+  ? `/${cvFile}`
+  : null;
