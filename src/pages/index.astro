@@ -89,7 +89,7 @@ const personSchema = {
           <h1 id="page-title">Jialong (Mark) Li</h1>
           <p class="role">
             <span>Predoctoral Research Fellow</span>
-            <span>Stanford Graduate School of Business</span>
+            <span><a class="affiliation-link" href="https://www.gsb.stanford.edu/programs/research-fellows/community/fellows" target="_blank" rel="noopener noreferrer">Stanford Graduate School of Business</a></span>
           </p>
           <img
             class="headshot"
@@ -115,29 +115,12 @@ const personSchema = {
             recommendation systems and online platforms. Lately, I am also exploring AI for formal
             methods and GenAI for recommendation systems.
           </p>
-          <ul class="intro-links" aria-label="Contact links">
+          <ul class="intro-links" aria-label="Contact and academic links">
             <li><a class="action-link email-link" href="mailto:markli@stanford.edu">markli@stanford.edu</a></li>
             {cvUrl && (
               <li><a class="action-link" href={cvUrl}>CV</a></li>
             )}
-            <li>
-              <a
-                class="action-link"
-                href="https://www.linkedin.com/in/jialong-mark-li-b3b83a203/"
-                target="_blank"
-                rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a
-              >
-            </li>
-            <li>
-              <a class="action-link" href="https://github.com/Marklong7" target="_blank" rel="noreferrer"
-                >GitHub <span aria-hidden="true">↗</span></a
-              >
-            </li>
-            <li>
-              <a class="action-link" href="https://www.gsb.stanford.edu/programs/research-fellows/community/fellows" target="_blank" rel="noreferrer"
-                >Stanford GSB · Current Fellows <span aria-hidden="true">↗</span></a
-              >
-            </li>
+            <li><a class="action-link" href="https://github.com/Marklong7" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
         </div>
       </div>
@@ -243,18 +226,39 @@ const personSchema = {
     margin-top: var(--space-4);
   }
 
-  .email-link {
+  .affiliation-link {
+    color: inherit;
+    text-decoration: none;
+    text-underline-offset: 0.2em;
+  }
+
+  .affiliation-link:hover {
     text-decoration: underline;
-    text-decoration-thickness: 1px;
   }
 
   .intro-links {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2) var(--space-5);
+    align-items: center;
+    gap: var(--space-2);
     margin: var(--space-5) 0 0;
     padding: 0;
     list-style: none;
+  }
+
+  .intro-links li + li::before {
+    content: "·";
+    margin: 0 var(--space-3) 0 var(--space-1);
+    color: var(--color-muted);
+  }
+
+  .intro-links .action-link {
+    font-weight: var(--weight-regular);
+  }
+
+  .email-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 
   .education {
